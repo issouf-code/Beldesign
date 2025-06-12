@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BEL Design - Experts en architecture, structure, métré et tutoriels logiciels.">
+  <meta name="author" content="BEL Design Team">
+  <title>BEL Design - Solutions Créatives</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+  <!-- Navigation -->
+  <header class="bg-white shadow">
+    <div class="container mx-auto flex items-center justify-between p-4">
+      <img src="images/logo.png" alt="Logo de BEL Design" class="w-36 h-auto">
+      <button id="navToggle" class="md:hidden">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+      <nav id="navMenu" class="hidden md:flex space-x-6">
+        <a href="#home" class="hover:text-blue-600">Accueil</a>
+        <a href="#services" class="hover:text-blue-600">Services</a>
+        <a href="#projets" class="hover:text-blue-600">Projets</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Accueil -->
+  <section id="home" class="py-20 text-center bg-blue-50">
+    <div class="container mx-auto">
+      <h1 class="text-4xl font-bold mb-4">Bienvenue chez BEL Design</h1>
+      <p class="text-xl mb-6">Votre partenaire en architecture, structure, métré et tutoriels logiciels</p>
+      <div class="flex justify-center space-x-8">
+        <i class="fas fa-drafting-compass fa-3x text-blue-600 transition-transform hover:scale-110"></i>
+        <i class="fas fa-cubes fa-3x text-green-600 transition-transform hover:scale-110"></i>
+        <i class="fas fa-calculator fa-3x text-yellow-500 transition-transform hover:scale-110"></i>
+        <i class="fas fa-chalkboard-teacher fa-3x text-purple-600 transition-transform hover:scale-110"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-16 bg-white">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-semibold mb-10">Nos Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-gray-100 p-6 rounded shadow">
+          <i class="fas fa-pencil-ruler fa-2x mb-4 text-blue-500"></i>
+          <h3 class="text-xl font-bold mb-2">Conception architecturale</h3>
+          <p>Concevoir des espaces esthétiques et fonctionnels adaptés à vos besoins.</p>
+        </div>
+        <div class="bg-gray-100 p-6 rounded shadow">
+          <i class="fas fa-building fa-2x mb-4 text-green-500"></i>
+          <h3 class="text-xl font-bold mb-2">Études de structure</h3>
+          <p>Analyser et dimensionner les structures pour garantir la sécurité.</p>
+        </div>
+        <div class="bg-gray-100 p-6 rounded shadow">
+          <i class="fas fa-balance-scale fa-2x mb-4 text-yellow-500"></i>
+          <h3 class="text-xl font-bold mb-2">Métré et devis</h3>
+          <p>Évaluer avec précision les quantités et les coûts des matériaux et travaux.</p>
+        </div>
+        <div class="bg-gray-100 p-6 rounded shadow">
+          <i class="fas fa-laptop-code fa-2x mb-4 text-purple-500"></i>
+          <h3 class="text-xl font-bold mb-2">Tutoriels logiciels</h3>
+          <p>Apprendre à maîtriser les logiciels professionnels du bâtiment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Formulaire -->
+<section id="contact" class="py-16 bg-blue-50">
+  <div class="container mx-auto max-w-4xl">
+    <h2 class="text-3xl font-semibold text-center mb-10">Demande de plan</h2>
+    <form class="bg-white p-8 rounded shadow-md space-y-6">
+      
+      <!-- Informations personnelles -->
+      <fieldset>
+        <legend class="text-xl font-bold mb-2">Informations personnelles</legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="nom" class="block font-medium">Nom :</label>
+            <input type="text" id="nom" name="nom" required class="w-full border p-2 rounded">
+          </div>
+          <div>
+            <label for="prenom" class="block font-medium">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required class="w-full border p-2 rounded">
+          </div>
+          <div>
+            <label for="email" class="block font-medium">Adresse mail :</label>
+            <input type="email" id="email" name="email" required class="w-full border p-2 rounded">
+          </div>
+          <div>
+            <label for="telephone" class="block font-medium">Téléphone :</label>
+            <input type="tel" id="telephone" name="telephone" required class="w-full border p-2 rounded">
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Type de plan -->
+      <fieldset>
+        <legend class="text-xl font-bold mb-2">Type de plan</legend>
+        <select id="typePlan" name="typePlan" required class="w-full border p-2 rounded">
+          <option value="">-- Sélectionnez --</option>
+          <option value="architecture">Plan d'architecture</option>
+          <option value="execution">Plan d'exécution</option>
+          <option value="quantitatif">Plan quantitatif</option>
+          <option value="archi_execution">Architecture + Exécution</option>
+          <option value="archi_quantitatif">Architecture + Quantitatif</option>
+          <option value="execution_quantitatif">Exécution + Quantitatif</option>
+          <option value="archi_execution_quantitatif">Tous les trois</option>
+          <option value="autre">Autre (joindre un document)</option>
+        </select>
+        <div id="fichierPlan" class="mt-4">
+          <label for="document" class="block font-medium">Document à joindre (optionnel) :</label>
+          <input type="file" id="document" name="document" class="w-full border p-2 rounded">
+        </div>
+      </fieldset>
+
+      <!-- Informations sur le projet -->
+      <fieldset>
+        <legend class="text-xl font-bold mb-2">Projet concerné</legend>
+        <select id="projet" name="projet" required class="w-full border p-2 rounded">
+          <option value="">-- Sélectionnez --</option>
+          <option value="maison">Maison d'habitation</option>
+          <option value="boutique">Boutique</option>
+          <option value="bureau">Bureau</option>
+          <option value="magasin">Magasin</option>
+          <option value="station">Station</option>
+          <option value="gare">Gare de bus</option>
+          <option value="ecole">École</option>
+          <option value="universite">Université</option>
+          <option value="mosquee">Mosquée</option>
+          <option value="autre">Autre</option>
+        </select>
+        <div id="autreProjet" class="mt-4 hidden">
+          <label for="autreProjetTexte" class="block font-medium">Précisez :</label>
+          <input type="text" id="autreProjetTexte" name="autreProjetTexte" class="w-full border p-2 rounded">
+        </div>
+      </fieldset>
+
+      <!-- Type de structure -->
+      <fieldset>
+        <legend class="text-xl font-bold mb-2">Type de structure</legend>
+        <select id="structure" name="structure" required class="w-full border p-2 rounded">
+          <option value="">-- Sélectionnez --</option>
+          <option value="beton">Béton armé</option>
+          <option value="bois">Bois</option>
+          <option value="metal">Structure métallique</option>
+        </select>
+      </fieldset>
+
+      <!-- Détails supplémentaires -->
+      <fieldset>
+        <legend class="text-xl font-bold mb-2">Détails techniques</legend>
+
+        <label for="duree" class="block font-medium">Durée estimée (en semaines) :</label>
+        <input type="number" id="duree" name="duree" min="1" max="52" step="1" required class="w-full border p-2 rounded">
+
+        <label for="superficie" class="block font-medium mt-4">Superficie (en m²) :</label>
+        <input type="number" id="superficie" name="superficie" min="25" step="25" required class="w-full border p-2 rounded">
+
+        <label for="chambres" class="block font-medium mt-4">Nombre de chambres :</label>
+        <input type="number" id="chambres" name="chambres" min="1" max="10" required class="w-full border p-2 rounded">
+
+        <label for="etages" class="block font-medium mt-4">Nombre d'étages :</label>
+        <input type="number" id="etages" name="etages" min="0" max="10" required class="w-full border p-2 rounded">
+
+        <label for="occupants" class="block font-medium mt-4">Nombre de personnes :</label>
+        <input type="number" id="occupants" name="occupants" min="1" max="100" required class="w-full border p-2 rounded">
+
+        <label for="description" class="block font-medium mt-4">Description complémentaire :</label>
+        <textarea id="description" name="description" rows="5" class="w-full border p-2 rounded"></textarea>
+      </fieldset>
+
+      <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+        Envoyer la demande
+      </button>
+    </form>
+  </div>
+</section>
+
+<script>
+  // Show/Hide champs personnalisés
+  document.getElementById("projet").addEventListener("change", function () {
+    const autre = document.getElementById("autreProjet");
+    autre.classList.toggle("hidden", this.value !== "autre");
+  });
+</script>
+
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="bg-white text-center py-6 border-t mt-10">
+    <p>&copy; 2025 BEL Design. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navToggle = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      const projetSelect = document.getElementById('projet');
+      const autreProjet = document.getElementById('autreProjet');
+
+      navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('hidden');
+      });
+
+      projetSelect.addEventListener('change', () => {
+        if (projetSelect.value === 'autre') {
+          autreProjet.classList.remove('hidden');
+        } else {
+          autreProjet.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
