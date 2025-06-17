@@ -326,32 +326,8 @@
     <p>&copy; 2025 BEL Design. Tous droits réservés.</p>
   </footer>
 
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
-    const projetSelect = document.getElementById('projet');
-    const autreProjet = document.getElementById('autreProjet');
-
-    // Toggle mobile nav menu
-    if (navToggle && navMenu) {
-      navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('hidden');
-      });
-    }
-
-    // Show/hide custom project input
-    if (projetSelect && autreProjet) {
-      projetSelect.addEventListener('change', () => {
-        if (projetSelect.value === 'autre') {
-          autreProjet.classList.remove('hidden');
-        } else {
-          autreProjet.classList.add('hidden');
-        }
-      });
-    }
-  });
-</script>
+  
+      
   <script>
   document.addEventListener('DOMContentLoaded', () => {
     const lightboxImages = document.querySelectorAll('.lightbox');
