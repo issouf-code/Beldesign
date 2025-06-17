@@ -328,16 +328,21 @@
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const navToggle = document.getElementById('navToggle');
-      const navMenu = document.getElementById('navMenu');
-      const projetSelect = document.getElementById('projet');
-      const autreProjet = document.getElementById('autreProjet');
+  document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    const projetSelect = document.getElementById('projet');
+    const autreProjet = document.getElementById('autreProjet');
 
+    // Toggle mobile nav menu
+    if (navToggle && navMenu) {
       navToggle.addEventListener('click', () => {
         navMenu.classList.toggle('hidden');
       });
+    }
 
+    // Show/hide custom project input
+    if (projetSelect && autreProjet) {
       projetSelect.addEventListener('change', () => {
         if (projetSelect.value === 'autre') {
           autreProjet.classList.remove('hidden');
@@ -345,8 +350,10 @@
           autreProjet.classList.add('hidden');
         }
       });
-    });
-  </script>
+    }
+  });
+</script>
+
 </body>
 
 </html>
