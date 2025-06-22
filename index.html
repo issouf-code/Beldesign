@@ -322,39 +322,79 @@
 </section>
 
     
-    <script>
-      function calculerPrix() {
-        const plans = document.querySelectorAll('.plan:checked');
-        let base = 0;
-    
-        plans.forEach(plan => {
-          base += parseFloat(plan.value);
-        });
-    
-        if (base === 0) {
-          document.getElementById("total").innerText = "Veuillez sélectionner au moins un type de plan.";
-          return;
-        }
-    
-        const projet = parseFloat(document.getElementById("projet").value);
-        const structure = parseFloat(document.getElementById("structure").value);
-        const surface = parseFloat(document.getElementById("superficie").value || 0);
-        const chambres = parseInt(document.getElementById("chambres").value || 0);
-        const etages = parseInt(document.getElementById("etages").value || 0);
-        const personnes = parseInt(document.getElementById("occupants").value || 0);
-        const duree = parseInt(document.getElementById("duree").value || 1);
-    
-        const surfaceCost = (surface / 100) * 1.25 * base;
-        const chambreCost = chambres * 0.1 * base;
-        const etageCost = etages * 1.5 * base;
-        const personneCost = (personnes / 10) * 0.1 * base;
-        const dureeCost = duree * 1.25 * base;
-    
-        const total = base * projet * structure + surfaceCost + chambreCost + etageCost + personneCost + dureeCost;
-    
-        document.getElementById("total").innerText = "Prix total estimé : " + total.toLocaleString('fr-FR') + " Fr";
-      }
-    </script>
+  <script>
+function calculerPrix() {
+  const plans = document.querySelectorAll('.plan:checked');
+  let base = 0;
+
+  plans.forEach(plan => {
+    base += parseFloat(plan.value);
+  });
+
+  if (base === 0) {
+    document.getElementById("total").innerText = "Veuillez sélectionner au moins un type de plan.";
+    return;
+  }
+
+  const projet = parseFloat(document.getElementById("projet").value);
+  const structure = parseFloat(document.getElementById("structure").value);
+  const surface = parseFloat(document.getElementById("superficie").value || 0);
+  const chambres = parseInt(document.getElementById("chambres").value || 0);
+  const etages = parseInt(document.getElementById("etages").value || 0);
+  const personnes = parseInt(document.getElementById("occupants").value || 0);
+  const duree = parseInt(document.getElementById("duree").value || 1);
+
+  if (surface < 25) {
+    document.getElementById("total").innerHTML = '<span class="error-message">Veuillez entrer une superficie supérieure à 25 m².</span>';
+    return;
+  }
+
+  const surfaceCost = (surface / 100) * 1.25 * base;
+  const chambreCost = chambres * 0.1 * base;
+  const etageCost = etages * 1.5 * base;
+  const personneCost = (personnes / 10) * 0.1 * base;
+
+  // Dégressivité pour la durée
+  let dureeCoef = 1.25;
+  if (duree > 1) {
+    dureeCoef -= Math.min(0.1 * (duree - 1), 1); // Limite la baisse à 1
+  }
+  const dureeCost = duree * dureeCoef * base;
+
+  const total = base * projet * structure + surfaceCost + chambreCost + etageCost + personneCost + dureeCost;
+
+  document.getElementById("total").innerText = "Prix total estimé : " + total.toLocaleString('fr-FR') + " Fr";
+  afficherRecap();
+}
+
+function afficherRecap() {
+  const nom = document.getElementById("nom").value;
+  const prenom = document.getElementById("prenom").value;
+  const email = document.getElementById("email").value;
+  const telephone = document.getElementById("telephone").value;
+  const duree = document.getElementById("duree").value;
+  const superficie = document.getElementById("superficie").value;
+  const chambres = document.getElementById("chambres").value;
+  const etages = document.getElementById("etages").value;
+  const occupants = document.getElementById("occupants").value;
+
+  let recap = `<h3 class="text-xl font-bold mt-8 mb-2">Récapitulatif :</h3>
+    <table class="w-full text-sm bg-white border rounded shadow" id="recapTable">
+      <tbody>
+        <tr><td class="border px-4 py-2">Nom</td><td class="border px-4 py-2">${nom}</td></tr>
+        <tr><td class="border px-4 py-2">Prénom</td><td class="border px-4 py-2">${prenom}</td></tr>
+        <tr><td class="border px-4 py-2">Email</td><td class="border px-4 py-2">${email}</td></tr>
+        <tr><td class="border px-4 py-2">Téléphone</td><td class="border px-4 py-2">${telephone}</td></tr>
+        <tr><td class="border px-4 py-2">Superficie</td><td class="border px-4 py-2">${superficie} m²</td></tr>
+        <tr><td class="border px-4 py-2">Chambres</td><td class="border px-4 py-2">${chambres}</td></tr>
+        <tr><td class="border px-4 py-2">Étages</td><td class="border px-4 py-2">${etages}</td></tr>
+        <tr><td class="border px-4 py-2">Occupants</td><td class="border px-4 py-2">${occupants}</td></tr>
+        <tr><td class="border px-4 py-2">Durée</td><td class="border px-4 py-2">${duree} semaines</td></tr>
+      </tbody>
+    </table>`;
+  document.getElementById("total").insertAdjacentHTML("afterend", recap);
+}
+</script>
     
 
 
