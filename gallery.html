@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BEL Design - Galerie</title>
+  <title>BEL Design - Diagnostic</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
   <!-- Font Awesome for Icons -->
   <link
     rel="stylesheet"
@@ -13,23 +14,23 @@
     referrerpolicy="no-referrer"
   />
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-white text-gray-800 font-sans">
 
   <!-- Header + Navigation -->
   <header class="bg-gradient-to-r from-blue-900 to-blue-700 text-white shadow-md">
     <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
       <a href="index.html">
-        <img src="images/logo.png" alt="BEL Design Logo" class="h-10 w-auto" />
+        <img src="images/logo.png" alt="Logo de BEL Design" class="h-10 w-auto" />
       </a>
-      <button id="menu-toggle" class="md:hidden text-white text-2xl">
+      <button id="menu-toggle" class="md:hidden text-white text-2xl" aria-label="Menu mobile">
         <i class="fas fa-bars"></i>
       </button>
       <nav>
         <ul id="mobile-menu" class="hidden md:flex flex-col md:flex-row gap-4 text-sm md:text-base">
-          <li><a href="index.html" class="flex items-center gap-1 hover:underline text-brown-500"><i class="fas fa-home"></i> Accueil</a></li>
+          <li><a href="index.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-home"></i> Accueil</a></li>
           <li><a href="services.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-cogs"></i> Services</a></li>
           <li><a href="devis.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-file-alt"></i> Devis</a></li>
-          <li><a href="diagnostic.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-stethoscope"></i> Diagnostic</a></li>
+          <li><a href="diagnostic.html" class="flex items-center gap-1 hover:underline text-yellow-400"><i class="fas fa-stethoscope"></i> Diagnostic</a></li>
           <li><a href="gallery.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-images"></i> Galerie</a></li>
           <li><a href="about.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-users"></i> À Propos</a></li>
           <li><a href="contact.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-envelope"></i> Contact</a></li>
@@ -38,53 +39,106 @@
     </div>
   </header>
 
-  <!-- Galerie Interactive -->
-  <main class="py-10 px-4">
-    <h2 class="text-3xl font-semibold text-center text-blue-800 mb-2">Nos Réalisations</h2>
-    <p class="text-center text-gray-600 mb-6">Cliquez sur les miniatures pour afficher l’image en grand.</p>
+  <!-- Section d'en-tête de la galerie -->
+<section class="text-center my-10 px-4">
+  <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
+    Bienvenue dans notre univers de design
+  </h2>
+  <p class="mt-2 text-gray-600 text-lg">
+    Découvrez des créations inspirées et des histoires visuelles signées BEL Design.
+  </p>
+</section>
 
-    <div class="content">
-        <div class="max-w-4xl mx-auto">
-      <div class="mb-6">
-        <img id="imageBig" src="images/img7.jpg" alt="Projet principal" class="w-full rounded shadow-md" />
-      </div>
-      <div class="grid grid-cols-3 md:grid-cols-5 gap-4">
-        <img src="images/img1.jpg" alt="Projet 1" onclick="changerImage(this)" class="cursor-pointer rounded hover:scale-105 transition" />
-        <img src="images/img10.jpg" alt="Projet 2" onclick="changerImage(this)" class="cursor-pointer rounded hover:scale-105 transition" />
-        <img src="images/img2.jpg" alt="Projet 3" onclick="changerImage(this)" class="cursor-pointer rounded hover:scale-105 transition" />
-        <img src="images/img5.jpg" alt="Projet 4" onclick="changerImage(this)" class="cursor-pointer rounded hover:scale-105 transition" />
-        <img src="images/img5.jpg" alt="Projet 5" onclick="changerImage(this)" class="cursor-pointer rounded hover:scale-105 transition" />
-      </div>
-    </div>
-    </div>
-  </main>
 
-  <!-- Script JS -->
+  <!-- Gallery Component -->
+  <div class="max-w-4xl mx-auto bg-white p-6 rounded shadow-md">
+    <!-- Large Preview -->
+    <div class="mb-6">
+      <img id="previewImage" src="images/img1.jpg" alt="Aperçu principal" class="w-full h-64 object-cover rounded shadow transition duration-300" />
+    </div>
+
+    <!-- Controls -->
+    <div class="flex items-center justify-between mb-4">
+      <button id="prevGroup" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-3 py-1 rounded shadow">
+        ← Précédent
+      </button>
+      <div class="text-gray-600 font-medium">Groupe <span id="groupIndicator">1</span></div>
+      <button id="nextGroup" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-3 py-1 rounded shadow">
+        Suivant →
+      </button>
+    </div>
+
+    <!-- Thumbnails -->
+    <div id="thumbnailContainer" class="grid grid-cols-3 md:grid-cols-5 gap-4">
+      <!-- JS will render thumbnails here -->
+    </div>
+  </div>
+
+  <!-- Gallery Logic Script -->
   <script>
-    function changerImage(petiteImage) {
-      document.getElementById("imageBig").src = petiteImage.src;
+    const imageGroups = [
+      ["images/img1.jpg", "images/img2.jpg", "images/img3.jpg", "images/img4.jpg", "images/img5.jpg"],
+      ["images/img6.jpg", "images/img7.jpg", "images/img8.jpg", "images/img9.jpg", "images/img10.jpg"],
+      ["images/img11.jpg", "images/img12.jpg", "images/img13.jpg", "images/img14.jpg", "images/img15.jpg"]
+    ];
+
+    let currentGroup = 0;
+
+    const previewImage = document.getElementById("previewImage");
+    const thumbnailContainer = document.getElementById("thumbnailContainer");
+    const groupIndicator = document.getElementById("groupIndicator");
+
+    function loadThumbnails(groupIndex) {
+      thumbnailContainer.innerHTML = "";
+      const group = imageGroups[groupIndex];
+      previewImage.src = group[0];
+      groupIndicator.textContent = groupIndex + 1;
+
+      group.forEach((src, index) => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = `Miniature ${index + 1}`;
+        img.className = "cursor-pointer rounded hover:scale-105 transition duration-300 shadow";
+        img.onclick = () => {
+          previewImage.src = src;
+        };
+        thumbnailContainer.appendChild(img);
+      });
     }
+
+    document.getElementById("prevGroup").addEventListener("click", () => {
+      currentGroup = (currentGroup - 1 + imageGroups.length) % imageGroups.length;
+      loadThumbnails(currentGroup);
+    });
+
+    document.getElementById("nextGroup").addEventListener("click", () => {
+      currentGroup = (currentGroup + 1) % imageGroups.length;
+      loadThumbnails(currentGroup);
+    });
+
+    // Initial load
+    loadThumbnails(currentGroup);
   </script>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white text-center py-6">
+  <footer class="bg-gray-900 text-white text-center py-6 mt-10">
     <div class="flex justify-center gap-6 mb-4 text-xl">
-      <a href="#" aria-label="Facebook" class="hover:text-brown-400"><i class="fab fa-facebook"></i></a>
-      <a href="#" aria-label="Instagram" class="hover:text-brown-400"><i class="fab fa-instagram"></i></a>
-      <a href="#" aria-label="LinkedIn" class="hover:text-brown-400"><i class="fab fa-linkedin"></i></a>
+      <a href="#" aria-label="Facebook" class="hover:text-blue-400"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="Instagram" class="hover:text-pink-400"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn" class="hover:text-blue-300"><i class="fab fa-linkedin"></i></a>
     </div>
     <p>&copy; 2025 BEL Design. Tous droits réservés.</p>
     <p class="text-sm"><strong>Powered by ISSOUF</strong></p>
   </footer>
 
-  <!-- Mobile Menu Script -->
+  <!-- Mobile Menu Toggle -->
   <script>
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
-
     menuToggle.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
   </script>
 </body>
 </html>
+ss
