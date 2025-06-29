@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BEL Design - Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Header + Navigation -->
+  <header class="bg-gradient-to-r from-blue-900 to-blue-700 text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html">
+        <img src="images/logo.png" alt="BEL Design Logo" class="h-10 w-auto" />
+      </a>
+      <button id="menu-toggle" class="md:hidden text-white text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <ul id="mobile-menu" class="hidden md:flex flex-col md:flex-row gap-4 text-sm md:text-base">
+          <li><a href="index.html" class="flex items-center gap-1 hover:underline text-brown-500"><i class="fas fa-home"></i> Accueil</a></li>
+          <li><a href="services.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-cogs"></i> Services</a></li>
+          <li><a href="devis.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-file-alt"></i> Devis</a></li>
+          <li><a href="diagnostic.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-stethoscope"></i> Diagnostic</a></li>
+          <li><a href="gallery.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-images"></i> Galerie</a></li>
+          <li><a href="about.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-users"></i> À Propos</a></li>
+          <li><a href="contact.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto px-4 py-12 space-y-16">
+
+    <section class="text-center">
+      <h1 class="text-3xl font-semibold text-blue-800 mb-4"><i class="fas fa-cogs"></i> Nos Services</h1>
+      <p class="text-lg font-medium">Concevoir. Résoudre. Construire.</p>
+      <p class="mt-2 text-gray-600">Chez <strong>BEL-DESIGN</strong>, nous transformons vos idées en projets concrets, durables et esthétiques. Nos services couvrent <strong>l’Architecture</strong>, <strong>le Génie Structurel</strong>, <strong>l’Économie de la Construction</strong> et les <strong>formations personnalisées</strong>.</p>
+    </section>
+
+    <!-- Services Detail -->
+    <section class="space-y-12">
+      <div>
+        <h2 class="text-2xl font-bold text-blue-700 mb-2"><i class="fas fa-pencil-ruler"></i> Architecture</h2>
+        <p>Notre service d’architecture allie créativité, fonctionnalité et respect des normes.</p>
+        <ul class="list-disc list-inside text-gray-700 mt-2">
+          <li>Projets résidentiels, commerciaux ou institutionnels</li>
+          <li>Plans, permis, visualisations 3D</li>
+          <li>Optimisation durable des espaces</li>
+        </ul>
+        <a href="devis.html" class="inline-block mt-3 bg-brown-600 hover:bg-brown-700 text-white px-4 py-2 rounded text-sm">
+          <i class="fas fa-arrow-right"></i> Prêt à imaginer votre espace ?
+        </a>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-blue-700 mb-2"><i class="fas fa-building"></i> Génie Structurel</h2>
+        <p>Nous assurons la stabilité et la sécurité de vos constructions grâce à des solutions solides.</p>
+        <ul class="list-disc list-inside text-gray-700 mt-2">
+          <li>Structures en béton, acier ou bois</li>
+          <li>Renforcement de structures existantes</li>
+          <li>Études de stabilité, modélisation</li>
+        </ul>
+        <a href="diagnostic.html" class="inline-block mt-3 bg-brown-600 hover:bg-brown-700 text-white px-4 py-2 rounded text-sm">
+          <i class="fas fa-search-plus"></i> Besoin d’un diagnostic ?
+        </a>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-blue-700 mb-2"><i class="fas fa-calculator"></i> Économie de la Construction</h2>
+        <p>Chaque Franc investi est justifié. Devis, estimations, suivi des coûts : on vous aide à garder le cap.</p>
+        <ul class="list-disc list-inside text-gray-700 mt-2">
+          <li>Estimations budgétaires</li>
+          <li>Devis quantitatifs & qualitatifs</li>
+          <li>Suivi financier</li>
+        </ul>
+        <a href="devis.html" class="inline-block mt-3 bg-brown-600 hover:bg-brown-700 text-white px-4 py-2 rounded text-sm">
+          <i class="fas fa-dolar-sign"></i> Maîtrisez vos coûts
+        </a>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-blue-700 mb-2"><i class="fas fa-graduation-cap"></i> Formations & Tutoriels</h2>
+        <p>Étudiants ou pros, formez-vous aux outils du BTP :</p>
+        <ul class="list-disc list-inside text-gray-700 mt-2">
+          <li>AutoCAD, Revit, et autres logiciels</li>
+          <li>Analyse structurelle, estimation</li>
+          <li>Accompagnement projets académiques</li>
+        </ul>
+        <a href="contact.html" class="inline-block mt-3 bg-brown-600 hover:bg-brown-700 text-white px-4 py-2 rounded text-sm">
+          <i class="fas fa-book-open"></i> Demander une formation
+        </a>
+      </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="pt-10 border-t">
+      <h2 class="text-2xl font-bold text-blue-700 mb-6"><i class="fas fa-toolbox"></i> Outils en ligne</h2>
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-xl font-semibold text-blue-600"><i class="fas fa-file-alt"></i> Formulaire Projet</h3>
+          <p>Remplissez notre formulaire détaillé, on vous contacte rapidement !</p>
+          <a href="devis.html" class="inline-block mt-2 bg-brown-600 hover:bg-brown-700 text-white px-4 py-2 rounded text-sm">
+            <i class="fas fa-clipboard-list"></i> Formulaire de projet
+          </a>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-blue-600"><i class="fas fa-exclamation-triangle"></i> Diagnostic Structurel</h3>
+          <p>Murs fissurés ? Téléversez vos photos et recevez une première analyse.</p>
+          <a href="diagnostic.html" class="inline-block mt-2 bg-brown-600 hover:bg-brown-700 text-white px-4 py-2 rounded text-sm">
+            <i class="fas fa-tools"></i> Faire un diagnostic
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Invite -->
+    <section class="text-center mt-12">
+      <h2 class="text-2xl font-bold text-blue-700 mb-2"><i class="fas fa-handshake"></i> Faisons Équipe</h2>
+      <p class="mb-4">Chaque projet commence par une conversation. Parlons-en.</p>
+      <div class="flex justify-center gap-4 flex-wrap">
+        <a href="contact.html" class="bg-brown-600 hover:bg-brown-700 text-white px-5 py-2 rounded text-sm">
+          <i class="fas fa-envelope-open-text"></i> Contactez-nous
+        </a>
+        <a href="devis.html" class="bg-brown-600 hover:bg-brown-700 text-white px-5 py-2 rounded text-sm">
+          <i class="fas fa-pen"></i> Remplir le formulaire
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center py-6">
+    <div class="flex justify-center gap-6 mb-4 text-xl">
+      <a href="#" aria-label="Facebook" class="hover:text-brown-400"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="Instagram" class="hover:text-brown-400"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn" class="hover:text-brown-400"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <p>&copy; 2025 BEL Design. Tous droits réservés.</p>
+    <p class="text-sm"><strong>Powered by ISSOUF</strong></p>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

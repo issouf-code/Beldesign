@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formulaire de projet - BEL-DESIGN</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+    form {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin: auto;
+    }
+    fieldset {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    legend {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="file"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    textarea {
+      resize: vertical;
+    }
+    .hidden {
+      display: none;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #total {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<form onsubmit="calculerPrix(); return false;" >
+
+
+  <!-- Informations personnelles -->
+  <fieldset>
+    <legend>Informations personnelles</legend>
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" required>
+
+    <label for="prenom">Prénom :</label>
+    <input type="text" id="prenom" name="prenom" required>
+
+    <label for="email">Adresse mail :</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="telephone">Téléphone :</label>
+    <input type="tel" id="telephone" name="telephone" required>
+  </fieldset>
+
+  <!-- Type de plan -->
+  <fieldset>
+    <legend>Type de plan</legend>
+    <label><input type="radio" name="typePlan" value="30000" required> Plan d'architecture </label>
+    <label><input type="radio" name="typePlan" value="40000"> Plan d'exécution </label>
+    <label><input type="radio" name="typePlan" value="30000"> Plan quantitatif </label>
+    <label><input type="radio" name="typePlan" value="70000"> Architecture + Exécution </label>
+    <label><input type="radio" name="typePlan" value="60000"> Architecture + Quantitatif </label>
+    <label><input type="radio" name="typePlan" value="70000"> Exécution + Quantitatif </label>
+    <label><input type="radio" name="typePlan" value="100000"> Tous les trois </label>
+    <label><input type="radio" name="typePlan" value="0"> Autre (joindre un document)</label>
+
+    <div id="fichierPlan" class="hidden">
+      <label for="document">Document à joindre :</label>
+      <input type="file" id="document" name="document" accept=".pdf,.jpg,.png">
+    </div>
+  </fieldset>
+
+  <!-- Projet concerné -->
+  <fieldset>
+    <legend>Projet concerné</legend>
+    <label for="projet">Type de projet :</label>
+    <select id="projet" name="projet" required>
+      <option value="1.25">Maison d'habitation</option>
+      <option value="1.25">Boutique</option>
+      <option value="1.5">Bureau</option>
+      <option value="1">Magasin</option>
+      <option value="2">Station</option>
+      <option value="2">Gare de bus</option>
+      <option value="2">École</option>
+      <option value="3">Université</option>
+      <option value="1">Mosquée</option>
+      <option value="1">Autre</option>
+    </select>
+
+    <div id="autreProjet" class="hidden">
+      <label for="autreProjetTexte">Précisez :</label>
+      <input type="text" id="autreProjetTexte" name="autreProjetTexte">
+    </div>
+  </fieldset>
+
+  <!-- Structure et terrain -->
+  <fieldset>
+    <legend>Informations sur le terrain</legend>
+    <label for="structure">Type de structure :</label>
+    <select id="structure" name="structure" required>
+        <option value="1">veuillez Choisir</option>
+      <option value="1">Béton armé</option>
+      <option value="2">Bois</option>
+      <option value="2">Structure métallique</option>
+    </select>
+
+    <label for="localisation">Localisation GPS ou adresse :</label>
+    <input type="text" id="localisation" name="localisation" placeholder="Ex; Mashin Masara, ALI DAN SOFO">
+
+    <label for="acces">Type d'accès :</label>
+    <select id="acces" name="acces" required>
+      <option value="">-- Choisir --</option>
+      <option value="Facile">Facile (route goudronnée)</option>
+      <option value="Moyen">Moyen (piste carrossable)</option>
+      <option value="Difficile">Difficile (zone enclavée)</option>
+    </select>
+
+    <label for="relief">Relief du terrain :</label>
+    <select id="relief" name="relief" required>
+      <option value="">-- Choisir --</option>
+      <option value="Plat">Plat</option>
+      <option value="Pente légère">Pente légère</option>
+      <option value="Forte pente">Forte pente</option>
+    </select>
+
+    <label for="photosTerrain">Photos ou plans existants :</label>
+    <input type="file" id="photosTerrain" name="photosTerrain" multiple accept=".jpg,.png,.pdf">
+
+    <label for="infrastructureExistante">Infrastructure existante :</label>
+    <select id="infrastructureExistante" name="infrastructureExistante" required>
+      <option value="">-- Choisir --</option>
+      <option value="Non">Non</option>
+      <option value="Oui">Oui</option>
+    </select>
+
+    <label for="descriptionInfrastructure">Description :</label>
+    <textarea id="descriptionInfrastructure" name="descriptionInfrastructure" rows="3" placeholder="Ex : maison 2 pièces, mur partiel..."></textarea>
+
+  </fieldset>
+
+  <!-- Détails techniques -->
+  <fieldset>
+    <legend>Détails techniques</legend>
+
+    <label for="duree">Durée estimée (semaines) :</label>
+    <input type="number" id="duree" name="duree" min="1" max="52" placeholder="" required>
+
+    <label for="longueur">Longueur (m) :</label>
+    <input type="number" id="longueur" name="longueur" min="100" step="50" required>
+
+    <label for="largeur">Largeur (m) :</label>
+    <input type="number" id="largeur" name="largeur" min="100" step="50" required>
+
+    <label for="chambres">Nombre de chambres :</label>
+    <input type="number" id="chambres" name="chambres" min="1" required>
+
+    <label for="etages">Nombre d'étages :</label>
+    <input type="number" id="etages" name="etages" min="0" placeholder="De 0 a plus" required>
+
+    <label for="occupants">Nombre de personnes :</label>
+    <input type="number" id="occupants" name="occupants" min="1" required>
+
+    <label for="description">Description complémentaire :</label>
+    <textarea id="description" name="description" rows="4"></textarea>
+  </fieldset>
+
+  <button type="submit">Calculer le prix</button>
+  <p id="total">Prix total estimé : ...</p>
+</form>
+
+<!-- JavaScript -->
+<script>
+function calculerPrix() {
+  const plan = parseFloat(document.querySelector('input[name="typePlan"]:checked')?.value || 0);
+  const projet = parseFloat(document.getElementById("projet").value || 1);
+  const structure = parseFloat(document.getElementById("structure").value || 1);
+  const longueur = parseFloat(document.getElementById("longueur").value || 0);
+  const largeur = parseFloat(document.getElementById("largeur").value || 0);
+  const surface = largeur * longueur;
+  const chambres = parseInt(document.getElementById("chambres").value || 0);
+  const etages = parseInt(document.getElementById("etages").value || 0);
+  const personnes = parseInt(document.getElementById("occupants").value || 0);
+  const duree = parseInt(document.getElementById("duree").value || 1);
+
+  const surfaceCost = (surface / 100) * 0.125 * plan;
+  const chambreCost = chambres * 0.01 * plan;
+  const etageCost = etages * 0.15 * plan;
+  const personneCost = (personnes / 10) * 0.01 * plan;
+  const dureeCost = duree * 0.125 * plan;
+
+  const total = plan * projet * structure + surfaceCost + chambreCost + etageCost + personneCost + dureeCost;
+
+  document.getElementById("total").innerText = "Prix total estimé : " + total.toLocaleString('fr-FR') + " Fr";
+}
+
+// Affichage dynamique du champ "Autre projet"
+document.getElementById("projet").addEventListener("change", function () {
+  const autreProjet = document.getElementById("autreProjet");
+  autreProjet.classList.toggle("hidden", this.value !== "1");
+});
+
+// Affichage dynamique du champ "Document à joindre"
+document.querySelectorAll('input[name="typePlan"]').forEach(radio => {
+  radio.addEventListener('change', function () {
+    const fileSection = document.getElementById("fichierPlan");
+    fileSection.classList.toggle("hidden", this.value !== "0");
+  });
+});
+</script>
+
+</body>
+</html>

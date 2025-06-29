@@ -1,444 +1,130 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="BEL Design - Experts en architecture, structure, métré et tutoriels logiciels.">
-  <meta name="author" content="BEL Design Team">
-  <title>BEL Design - Experts en Architecture, Structure & Formation Logicielle</title>
-<meta name="description" content="BEL Design offre des solutions innovantes en architecture, structure, métré et formations sur les logiciels de conception tels qu’AutoCAD, Revit, ArchiCAD, et plus encore.">
-<meta name="keywords" content="architecture, structure, métré, formation, AutoCAD, Revit, ArchiCAD, BEL Design, ingénierie, plans de maison">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BEL Design - Solutions Créatives</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 </head>
+<body class="bg-white text-gray-800">
 
-<body class="bg-gray-100 text-gray-800">
-  <!-- Navigation -->
-  <header class="bg-white shadow">
-    <div class="container mx-auto flex items-center justify-between p-4">
-      <img src="images/logo.png" alt="Logo de BEL Design" class="w-36 h-auto">
-      <button id="navToggle" class="md:hidden">
-        <i class="fas fa-bars text-2xl"></i>
+  <!-- Header + Navigation -->
+  <header class="bg-gradient-to-r from-blue-900 to-blue-700 text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html">
+        <img src="images/logo.png" alt="BEL Design Logo" class="h-10 w-auto" />
+      </a>
+      <button id="menu-toggle" class="md:hidden text-white text-2xl">
+        <i class="fas fa-bars"></i>
       </button>
-      <div class="md:hidden">
-  <nav id="navMenu" aria-label="Menu principal" class="hidden md:flex mt-4 md:mt-0 text-center">
-  <ul class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6 w-full justify-center">
-    <li><a href="#home" class="hover:text-blue-600 focus:text-blue-600 focus:outline-none">Accueil</a></li>
-    <li><a href="#services" class="hover:text-blue-600 focus:text-blue-600 focus:outline-none">Services</a></li>
-    <li><a href="#projets" class="hover:text-blue-600 focus:text-blue-600 focus:outline-none">Projets</a></li>
-    <li><a href="#personnel" class="hover:text-blue-600 focus:text-blue-600 focus:outline-none">Personnel</a></li>
-    <li><a href="#contact" class="hover:text-blue-600 focus:text-blue-600 focus:outline-none">Contact</a></li>
-  </ul>
-</nav>
-
-
-
-</div>
-
-      
-
-
+      <nav>
+        <ul id="mobile-menu" class="hidden md:flex flex-col md:flex-row gap-4 text-sm md:text-base">
+          <li><a href="index.html" class="flex items-center gap-1 hover:underline text-brown-500"><i class="fas fa-home"></i> Accueil</a></li>
+          <li><a href="services.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-cogs"></i> Services</a></li>
+          <li><a href="devis.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-file-alt"></i> Devis</a></li>
+          <li><a href="diagnostic.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-stethoscope"></i> Diagnostic</a></li>
+          <li><a href="gallery.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-images"></i> Galerie</a></li>
+          <li><a href="about.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-users"></i> À Propos</a></li>
+          <li><a href="contact.html" class="flex items-center gap-1 hover:underline"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <!-- Accueil -->
-  <section id="home" class="py-20 text-center bg-blue-50">
-    <div class="container mx-auto">
-      <h1 class="text-4xl font-bold mb-4">Bienvenue chez BEL Design</h1>
-      <p class="text-xl mb-6">Votre partenaire en architecture, structure, métré et tutoriels logiciels</p>
-      <div class="flex justify-center space-x-8">
-        <i class="fas fa-drafting-compass fa-3x text-blue-600 transition-transform hover:scale-110"></i>
-        <i class="fas fa-cubes fa-3x text-green-600 transition-transform hover:scale-110"></i>
-        <i class="fas fa-calculator fa-3x text-yellow-500 transition-transform hover:scale-110"></i>
-        <i class="fas fa-chalkboard-teacher fa-3x text-purple-600 transition-transform hover:scale-110"></i>
-      </div>
-    </div>
+  <!-- Hero Section -->
+  <section class="text-center bg-gradient-to-br from-blue-800 to-blue-600 text-white py-16 px-4">
+    <h2 class="text-4xl font-bold mb-4"><i class="fas fa-lightbulb"></i> Bienvenue chez BEL Design</h2>
+    <p class="text-lg mb-6">Experts en architecture, structure, métré et tutoriels logiciels.</p>
+    <a href="services.html" class="inline-block bg-brown-600 hover:bg-brown-700 text-white px-6 py-3 rounded shadow transition">
+      <i class="fas fa-arrow-right"></i> Découvrir Nos Services
+    </a>
   </section>
 
-  <!-- Services -->
+  <!-- À Propos -->
+  <section class="max-w-5xl mx-auto px-4 py-12 text-center">
+    <h2 class="text-3xl font-semibold mb-4 text-blue-800"><i class="fas fa-info-circle"></i> À Propos</h2>
+    <p class="text-gray-700 mb-6">Nous sommes une équipe d’architectes et d’ingénieurs expérimentés qui transforment les idées en conceptions impactantes. De la conception à la réalisation, nous assurons des services de qualité dans tous les domaines du BTP.</p>
+    <a href="about.html" class="inline-block bg-brown-600 hover:bg-brown-700 text-white px-5 py-2 rounded transition text-sm">
+      <i class="fas fa-user-tie"></i> En Savoir Plus
+    </a>
+  </section>
+
+  <!-- Nos Services -->
   <section id="services" class="py-16 bg-white">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-semibold mb-10">Nos Services</h2>
+    <div class="max-w-7xl mx-auto text-center px-4">
+      <h2 class="text-3xl font-semibold mb-10 text-blue-800"><i class="fas fa-tools"></i> Nos Services</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="bg-gray-100 p-6 rounded shadow">
-          <i class="fas fa-pencil-ruler fa-2x mb-4 text-blue-500"></i>
+          <i class="fas fa-pencil-ruler fa-2x mb-4 text-blue-600"></i>
           <h3 class="text-xl font-bold mb-2">Conception architecturale</h3>
           <p>Concevoir des espaces esthétiques et fonctionnels adaptés à vos besoins.</p>
         </div>
         <div class="bg-gray-100 p-6 rounded shadow">
-          <i class="fas fa-building fa-2x mb-4 text-green-500"></i>
+          <i class="fas fa-building fa-2x mb-4 text-green-600"></i>
           <h3 class="text-xl font-bold mb-2">Études de structure</h3>
           <p>Analyser et dimensionner les structures pour garantir la sécurité.</p>
         </div>
         <div class="bg-gray-100 p-6 rounded shadow">
-          <i class="fas fa-balance-scale fa-2x mb-4 text-yellow-500"></i>
+          <i class="fas fa-balance-scale fa-2x mb-4 text-yellow-600"></i>
           <h3 class="text-xl font-bold mb-2">Métré et devis</h3>
           <p>Évaluer avec précision les quantités et les coûts des matériaux et travaux.</p>
         </div>
-        <a href="/tutoriels" class="block bg-gray-100 p-6 rounded shadow hover:shadow-lg transition-shadow duration-300">
-  <div class="text-center">
-    <i class="fas fa-laptop-code fa-2x mb-4 text-purple-500"></i>
-    <h3 class="text-xl font-bold mb-2">Tutoriels logiciels</h3>
-    <p>Apprendre à maîtriser les logiciels professionnels du bâtiment.</p>
-  </div>
-</a>
-
+        <div class="bg-gray-100 p-6 rounded shadow">
+          <i class="fas fa-laptop-code fa-2x mb-4 text-purple-600"></i>
+          <h3 class="text-xl font-bold mb-2">Tutoriels logiciels</h3>
+          <p>Apprendre à maîtriser les logiciels professionnels du bâtiment.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="personnel" class="bg-gray-100 py-16">
-  <div class="max-w-6xl mx-auto px-4">
-    <h2 class="text-3xl font-semibold text-center text-gray-800 mb-12">Notre Équipe Dirigeante</h2>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-      <!-- CEO -->
-      <div class="bg-white rounded-lg shadow-md p-6 text-center">
-        <img src="images/img1.jpg" alt="CEO" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-        <h3 class="text-xl font-bold text-gray-800">Directeur Général</h3>
-        <p class="text-gray-600">CEO of BEL Design</p>
-      </div>
-
-      <!-- Secretary General -->
-      <div class="bg-white rounded-lg shadow-md p-6 text-center">
-        <img src="images/img2.jpg" alt="Secrétaire Général" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-        <h3 class="text-xl font-bold text-gray-800">Secrétaire Général</h3>
-        <p class="text-gray-600">Gestion administrative & coordination</p>
-      </div>
-
-      <!-- Architect -->
-      <div class="bg-white rounded-lg shadow-md p-6 text-center">
-        <img src="images/img3.jpg" alt="Architecte" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-        <h3 class="text-xl font-bold text-gray-800">Architecte Principal</h3>
-        <p class="text-gray-600">Conception et planification</p>
-      </div>
-
-      <!-- Building Engineer -->
-      <div class="bg-white rounded-lg shadow-md p-6 text-center">
-        <img src="images/img4.jpg" alt="Ingénieur Bâtiment" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-        <h3 class="text-xl font-bold text-gray-800">Ingénieur Bâtiment</h3>
-        <p class="text-gray-600">Supervision structurelle</p>
-      </div>
-
-      <!-- Quantity Surveyor -->
-      <div class="bg-white rounded-lg shadow-md p-6 text-center">
-        <img src="images/img5.jpg" alt="Économiste de la construction" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-        <h3 class="text-xl font-bold text-gray-800">Économiste de la Construction</h3>
-        <p class="text-gray-600">Estimation & métré</p>
-      </div>
-
-      <!-- IT Support / Marketing -->
-      <div class="bg-white rounded-lg shadow-md p-6 text-center">
-        <img src="images/img6.jpg" alt="Support IT et Marketing" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-        <h3 class="text-xl font-bold text-gray-800">Support Informatique & Marketing</h3>
-        <p class="text-gray-600">Communication digitale & tech</p>
-      </div>
+  <!-- Galerie -->
+  <section class="py-12 px-4 text-center">
+    <h2 class="text-3xl font-semibold text-blue-800 mb-8"><i class="fas fa-image"></i> Réalisations</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+      <img src="images/img1.jpg" alt="Projet 1" class="rounded-lg shadow">
+      <img src="images/img2.jpg" alt="Projet 2" class="rounded-lg shadow">
+      <img src="images/img3.jpg" alt="Projet 3" class="rounded-lg shadow">
     </div>
-  </div>
-</section>
-
-
-  <!-- Projets Section -->
-<section id="projets" class="py-16 bg-white">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Nos Projets</h2>
-
-    <div class="overflow-x-auto whitespace-nowrap flex gap-4 md:grid md:grid-cols-3 md:gap-6">
-      <!-- Image thumbnails with lightbox trigger -->
-      <img src="images/img1.jpg" alt="Projet 1" class="lightbox w-72 h-48 object-cover rounded shadow inline-block cursor-pointer">
-      <img src="images/img2.jpg" alt="Projet 2" class="lightbox w-72 h-48 object-cover rounded shadow inline-block cursor-pointer">
-      <img src="images/img3.jpg" alt="Projet 3" class="lightbox w-72 h-48 object-cover rounded shadow inline-block cursor-pointer">
-      <img src="images/img4.jpg" alt="Projet 4" class="lightbox w-72 h-48 object-cover rounded shadow inline-block cursor-pointer">
-      <img src="images/img5.jpg" alt="Projet 5" class="lightbox w-72 h-48 object-cover rounded shadow inline-block cursor-pointer">
-      <img src="images/img6.jpg" alt="Projet 6" class="lightbox w-72 h-48 object-cover rounded shadow inline-block cursor-pointer">
-      <img src="images/img7.jpg" alt="Projet 7" class="lightbox w-72 h-48 object-cover rounded shadow inline-block cursor-pointer">
-      <img src="images/img8.jpg" alt="Projet 8" class="lightbox w-72 h-48 object-cover rounded shadow inline-block cursor-pointer">
-      <img src="images/img9.jpg" alt="Projet 9" class="lightbox w-72 h-48 object-cover rounded shadow inline-block cursor-pointer">
-      <img src="images/img10.jpg" alt="Projet 10" class="lightbox w-72 h-48 object-cover rounded shadow inline-block cursor-pointer">
-    </div>
-
-    <!-- Scroll Hint for mobile -->
-    <p class="text-center text-sm text-gray-500 mt-2 md:hidden">Faites défiler horizontalement pour voir plus</p>
-  </div>
-</section>
-
-<!-- Lightbox Modal -->
-<div id="lightboxModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50">
-  <img id="lightboxImage" src="" alt="Image" class="max-h-[90vh] max-w-[90vw] rounded shadow-lg">
-  <button id="closeLightbox" class="absolute top-6 right-6 text-white text-3xl font-bold">&times;</button>
-</div>
-
-      
-
-<!-- Formulaire -->
-<section id="contact" class="py-16 bg-blue-50">
-  <div class="container mx-auto max-w-4xl">
-    <h2 class="text-3xl font-semibold text-center mb-10">Demande de plan</h2>
-    <form class="bg-white p-8 rounded shadow-md space-y-6" onsubmit="return false">
-      <!-- Informations personnelles -->
-      <fieldset>
-        <legend class="text-xl font-bold mb-2">Informations personnelles</legend>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label for="nom" class="block font-medium">Nom :</label>
-            <input type="text" id="nom" name="nom" required class="w-full border p-2 rounded">
-          </div>
-          <div>
-            <label for="prenom" class="block font-medium">Prénom :</label>
-            <input type="text" id="prenom" name="prenom" required class="w-full border p-2 rounded">
-          </div>
-          <div>
-            <label for="email" class="block font-medium">Adresse mail :</label>
-            <input type="email" id="email" name="email" required class="w-full border p-2 rounded">
-          </div>
-          <div>
-            <label for="telephone" class="block font-medium">Téléphone :</label>
-            <input type="tel" id="telephone" name="telephone" required class="w-full border p-2 rounded">
-          </div>
-        </div>
-      </fieldset>
-    
-      <!-- Type de plan -->
-      <fieldset>
-        <legend class="text-xl font-bold mb-2">Type de plan</legend>
-        <div class="space-y-2">
-          <label><input type="checkbox" class="plan" value="30000"> Plan d'architecture – 30,000 Fr</label>
-          <label><input type="checkbox" class="plan" value="40000"> Plan d'exécution – 40,000 Fr</label>
-          <label><input type="checkbox" class="plan" value="30000"> Plan quantitatif – 30,000 Fr</label>
-        </div>
-      </fieldset>
-    
-      <!-- Informations sur le projet -->
-      <fieldset>
-        <legend class="text-xl font-bold mb-2">Projet concerné</legend>
-        <select id="projet" name="projet" required class="w-full border p-2 rounded">
-          <option value="1.25">Maison d'habitation</option>
-          <option value="1.25">Boutique</option>
-          <option value="1.5">Bureau</option>
-          <option value="1">Magasin</option>
-          <option value="2">Station</option>
-          <option value="2">Gare de bus</option>
-          <option value="2">École</option>
-          <option value="3">Université</option>
-          <option value="1">Mosquée</option>
-          <option value="1">Autre</option>
-        </select>
-        <div id="autreProjet" class="mt-4 hidden">
-          <label for="autreProjetTexte" class="block font-medium">Précisez :</label>
-          <input type="text" id="autreProjetTexte" name="autreProjetTexte" class="w-full border p-2 rounded">
-        </div>
-      </fieldset>
-    
-      <!-- Type de structure -->
-      <fieldset>
-        <legend class="text-xl font-bold mb-2">Type de structure</legend>
-        <select id="structure" name="structure" required class="w-full border p-2 rounded">
-          <option value="1">Béton armé</option>
-          <option value="2">Bois</option>
-          <option value="2">Structure métallique</option>
-        </select>
-      </fieldset>
-    
-      <!-- Détails supplémentaires -->
-      <fieldset>
-        <legend class="text-xl font-bold mb-2">Détails techniques</legend>
-    
-        <label for="duree" class="block font-medium">Durée estimée (en semaines) :</label>
-        <input type="number" id="duree" name="duree" min="1" max="52" step="1" required class="w-full border p-2 rounded">
-    
-        <label for="superficie" class="block font-medium mt-4">Superficie (en m²) :</label>
-        <input type="number" id="superficie" name="superficie" min="25" step="25" required class="w-full border p-2 rounded">
-    
-        <label for="chambres" class="block font-medium mt-4">Nombre de chambres :</label>
-        <input type="number" id="chambres" name="chambres" min="1" max="10" required class="w-full border p-2 rounded">
-    
-        <label for="etages" class="block font-medium mt-4">Nombre d'étages :</label>
-        <input type="number" id="etages" name="etages" min="0" max="10" required class="w-full border p-2 rounded">
-    
-        <label for="occupants" class="block font-medium mt-4">Nombre de personnes :</label>
-        <input type="number" id="occupants" name="occupants" min="1" max="100" required class="w-full border p-2 rounded">
-    
-        <label for="description" class="block font-medium mt-4">Description complémentaire :</label>
-        <textarea id="description" name="description" rows="5" class="w-full border p-2 rounded"></textarea>
-      </fieldset>
-    
-      <!-- Prix total -->
-      <fieldset>
-        <legend class="text-xl font-bold mb-2">Estimation du coût</legend>
-        <button type="button" onclick="calculerPrix()" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
-          Calculer le prix
-        </button>
-        <p id="total" class="font-bold mt-4">Prix total estimé : ...</p>
-      </fieldset>
-    
-      <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
-        Envoyer la demande
-      </button>
-    </form>
-    <section id="about" class="py-16 bg-white">
-  <div class="container mx-auto max-w-4xl text-center">
-    <h2 class="text-3xl font-bold mb-4">À propos de BEL Design</h2>
-    <p class="text-lg leading-relaxed text-gray-700">
-      BEL Design est une équipe passionnée d'ingénieurs et d'architectes, spécialisée dans la création de solutions de construction innovantes. Depuis plus de 5 ans, nous accompagnons des particuliers et professionnels dans la réalisation de leurs projets grâce à notre expertise et nos formations personnalisées.
-    </p>
-  </div>
-</section>
-<!-- Section Blog -->
-<section id="blog" class="py-16 bg-white">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-semibold text-center mb-10">Nos Articles de Blog</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      
-      <!-- Article 1 -->
-      <article class="bg-blue-50 p-6 rounded shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold mb-3">Comment choisir un plan de maison adapté à votre terrain</h3>
-        <p class="text-gray-700 mb-4">Découvrez les critères essentiels pour adapter votre plan à la topographie et à la réglementation locale.</p>
-        <a href="#" class="text-blue-600 font-semibold hover:underline">Lire la suite →</a>
-      </article>
-
-      <!-- Article 2 -->
-      <article class="bg-blue-50 p-6 rounded shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold mb-3">Top 5 des erreurs à éviter en architecture résidentielle</h3>
-        <p class="text-gray-700 mb-4">Évitez ces erreurs courantes pour garantir un projet harmonieux, fonctionnel et économique.</p>
-        <a href="#" class="text-blue-600 font-semibold hover:underline">Lire la suite →</a>
-      </article>
-
-      <!-- Article 3 -->
-      <article class="bg-blue-50 p-6 rounded shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold mb-3">Quelle est la différence entre AutoCAD et Revit ?</h3>
-        <p class="text-gray-700 mb-4">Un comparatif simple et clair entre ces deux logiciels majeurs utilisés en architecture.</p>
-        <a href="#" class="text-blue-600 font-semibold hover:underline">Lire la suite →</a>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-    
-  <script>
-function calculerPrix() {
-  const plans = document.querySelectorAll('.plan:checked');
-  let base = 0;
-
-  plans.forEach(plan => {
-    base += parseFloat(plan.value);
-  });
-
-  if (base === 0) {
-    document.getElementById("total").innerText = "Veuillez sélectionner au moins un type de plan.";
-    return;
-  }
-
-  const projet = parseFloat(document.getElementById("projet").value);
-  const structure = parseFloat(document.getElementById("structure").value);
-  const surface = parseFloat(document.getElementById("superficie").value || 0);
-  const chambres = parseInt(document.getElementById("chambres").value || 0);
-  const etages = parseInt(document.getElementById("etages").value || 0);
-  const personnes = parseInt(document.getElementById("occupants").value || 0);
-  const duree = parseInt(document.getElementById("duree").value || 1);
-
-  if (surface < 25) {
-    document.getElementById("total").innerHTML = '<span class="error-message">Veuillez entrer une superficie supérieure à 25 m².</span>';
-    return;
-  }
-
-  const surfaceCost = (surface / 100) * 1.25 * base;
-  const chambreCost = chambres * 0.1 * base;
-  const etageCost = etages * 1.5 * base;
-  const personneCost = (personnes / 10) * 0.1 * base;
-
-  // Dégressivité pour la durée
-  let dureeCoef = 1.25;
-  if (duree > 1) {
-    dureeCoef -= Math.min(0.1 * (duree - 1), 1); // Limite la baisse à 1
-  }
-  const dureeCost = duree * dureeCoef * base;
-
-  const total = base * projet * structure + surfaceCost + chambreCost + etageCost + personneCost + dureeCost;
-
-  document.getElementById("total").innerText = "Prix total estimé : " + total.toLocaleString('fr-FR') + " Fr";
-  afficherRecap();
-}
-
-function afficherRecap() {
-  const nom = document.getElementById("nom").value;
-  const prenom = document.getElementById("prenom").value;
-  const email = document.getElementById("email").value;
-  const telephone = document.getElementById("telephone").value;
-  const duree = document.getElementById("duree").value;
-  const superficie = document.getElementById("superficie").value;
-  const chambres = document.getElementById("chambres").value;
-  const etages = document.getElementById("etages").value;
-  const occupants = document.getElementById("occupants").value;
-
-  let recap = `<h3 class="text-xl font-bold mt-8 mb-2">Récapitulatif :</h3>
-    <table class="w-full text-sm bg-white border rounded shadow" id="recapTable">
-      <tbody>
-        <tr><td class="border px-4 py-2">Nom</td><td class="border px-4 py-2">${nom}</td></tr>
-        <tr><td class="border px-4 py-2">Prénom</td><td class="border px-4 py-2">${prenom}</td></tr>
-        <tr><td class="border px-4 py-2">Email</td><td class="border px-4 py-2">${email}</td></tr>
-        <tr><td class="border px-4 py-2">Téléphone</td><td class="border px-4 py-2">${telephone}</td></tr>
-        <tr><td class="border px-4 py-2">Superficie</td><td class="border px-4 py-2">${superficie} m²</td></tr>
-        <tr><td class="border px-4 py-2">Chambres</td><td class="border px-4 py-2">${chambres}</td></tr>
-        <tr><td class="border px-4 py-2">Étages</td><td class="border px-4 py-2">${etages}</td></tr>
-        <tr><td class="border px-4 py-2">Occupants</td><td class="border px-4 py-2">${occupants}</td></tr>
-        <tr><td class="border px-4 py-2">Durée</td><td class="border px-4 py-2">${duree} semaines</td></tr>
-      </tbody>
-    </table>`;
-  document.getElementById("total").insertAdjacentHTML("afterend", recap);
-}
-</script>
-    
-
-
-
-
-    </div>
+    <a href="gallery.html" class="inline-block mt-6 bg-brown-600 hover:bg-brown-700 text-white px-5 py-2 rounded transition text-sm">
+      <i class="fas fa-photo-video"></i> Voir la Galerie Complète
+    </a>
   </section>
 
-  <!-- Pied de page -->
-  <footer class="bg-white text-center py-6 border-t mt-10">
+  <!-- Contact CTA -->
+  <section class="bg-blue-900 text-white py-12 px-4 text-center">
+    <h2 class="text-2xl md:text-3xl font-semibold mb-4"><i class="fas fa-phone-alt"></i> Besoin d’experts en conception ?</h2>
+    <a href="contact.html" class="inline-block bg-brown-600 hover:bg-brown-700 px-6 py-3 rounded text-white transition">
+      <i class="fas fa-paper-plane"></i> Contactez-Nous
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center py-6">
+    <div class="flex justify-center gap-6 mb-4 text-xl">
+      <a href="#" aria-label="Facebook" class="hover:text-brown-400"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="Instagram" class="hover:text-brown-400"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn" class="hover:text-brown-400"><i class="fab fa-linkedin"></i></a>
+    </div>
     <p>&copy; 2025 BEL Design. Tous droits réservés.</p>
+    <p class="text-sm"><strong>Powered by ISSOUF</strong></p>
   </footer>
 
-  
-      
+  <!-- Mobile Menu Script -->
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const lightboxImages = document.querySelectorAll('.lightbox');
-    const modal = document.getElementById('lightboxModal');
-    const modalImg = document.getElementById('lightboxImage');
-    const closeBtn = document.getElementById('closeLightbox');
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-    lightboxImages.forEach(img => {
-      img.addEventListener('click', () => {
-        modalImg.src = img.src;
-        modal.classList.remove('hidden');
-      });
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
     });
-
-    closeBtn.addEventListener('click', () => {
-      modal.classList.add('hidden');
-      modalImg.src = '';
-    });
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.add('hidden');
-        modalImg.src = '';
-      }
-    });
-  });
-</script>
-
-
+  </script>
 </body>
-
 </html>
