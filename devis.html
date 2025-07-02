@@ -69,9 +69,9 @@
       <fieldset>
         <legend class="text-xl font-bold mb-2">Type de plan</legend>
         <div class="space-y-2">
-          <label><input type="checkbox" class="plan" value="30000"> Plan d'architecture – 30,000 Fr</label>
-          <label><input type="checkbox" class="plan" value="40000"> Plan d'exécution – 40,000 Fr</label>
-          <label><input type="checkbox" class="plan" value="30000"> Plan quantitatif – 30,000 Fr</label>
+          <label><input type="checkbox" class="plan" value="30000"> Plan d'architecture </label>
+          <label><input type="checkbox" class="plan" value="40000"> Plan d'exécution </label>
+          <label><input type="checkbox" class="plan" value="30000"> Plan quantitatif </label>
         </div>
       </fieldset>
     
@@ -79,6 +79,7 @@
       <fieldset>
         <legend class="text-xl font-bold mb-2">Projet concerné</legend>
         <select id="projet" name="projet" required class="w-full border p-2 rounded">
+          <option value="null">Veuillez choisir</option>
           <option value="1.25">Maison d'habitation</option>
           <option value="1.25">Boutique</option>
           <option value="1.5">Bureau</option>
@@ -100,6 +101,7 @@
       <fieldset>
         <legend class="text-xl font-bold mb-2">Type de structure</legend>
         <select id="structure" name="structure" required class="w-full border p-2 rounded">
+          <option value="null">Veuillez choisir</option>
           <option value="1">Béton armé</option>
           <option value="2">Bois</option>
           <option value="2">Structure métallique</option>
@@ -113,11 +115,13 @@
         <label for="duree" class="block font-medium">Durée estimée (en semaines) :</label>
         <input type="number" id="duree" name="duree" min="1" max="52" step="1" required class="w-full border p-2 rounded">
     
-        <label for="superficie" class="block font-medium mt-4">Superficie (en m²) :</label>
-        <input type="number" id="superficie" name="superficie" min="25" step="25" required class="w-full border p-2 rounded">
+        <label for="longuer" class="block font-medium mt-4">Longueur (en m²) :</label>
+        <input type="number" id="longuer" name="superficie" min="5" required class="w-full border p-2 rounded">
+        <label for="largeur" class="block font-medium mt-4"> Largeur (en m) :</label>
+        <input type="number" id="largeur" name="largeur" min="5" required class="w-full border p-2 rounded">
     
         <label for="chambres" class="block font-medium mt-4">Nombre de chambres :</label>
-        <input type="number" id="chambres" name="chambres" min="1" max="10" required class="w-full border p-2 rounded">
+        <input type="number" id="chambres" name="chambres" min="1" max="100" required class="w-full border p-2 rounded">
     
         <label for="etages" class="block font-medium mt-4">Nombre d'étages :</label>
         <input type="number" id="etages" name="etages" min="0" max="10" required class="w-full border p-2 rounded">
