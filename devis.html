@@ -37,162 +37,206 @@
       </nav>
     </div>
   </header>
-<!-- You will find below the modified version of your form fully integrated with EmailJS, jsPDF, placeholders, success message, and redirection. -->
-
-<!-- Import EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  emailjs.init("5KtNY6GvcYtcd4gJ-");
-</script>
-
-<!-- Import jsPDF -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
 <!-- Formulaire -->
 <section class="py-10 px-6 max-w-4xl mx-auto">
-  <h1 class="text-3xl font-bold text-center mb-6">Demande de Devis</h1>
+    <h1 class="text-3xl font-bold text-center mb-6">Demande de Devis</h1>
 
-  <form id="formulaire-devis" class="bg-white p-6 rounded shadow space-y-6" onsubmit="envoyerFormulaire(event)">
-    <!-- Infos personnelles -->
-    <div class="grid md:grid-cols-2 gap-4">
-      <div>
-        <label for="nom">Nom :</label>
-        <input id="nom" name="nom" placeholder="Entrez votre nom" required class="w-full border p-2 rounded" />
+    <!-- FORMULAIRE -->
+    <form id="formulaire-devis" class="bg-white p-6 rounded shadow space-y-6" onsubmit="return false">
+      <!-- Infos personnelles -->
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label for="nom">Nom :</label>
+          <input id="nom" name="nom" required class="w-full border p-2 rounded" />
+        </div>
+        <div>
+          <label for="prenom">Prénom :</label>
+          <input id="prenom" name="prenom" required class="w-full border p-2 rounded" />
+        </div>
+        <div>
+          <label for="email">Email :</label>
+          <input type="email" id="email" name="email" required class="w-full border p-2 rounded" />
+        </div>
+        <div>
+          <label for="telephone">Téléphone :</label>
+          <input type="tel" id="telephone" name="telephone" required class="w-full border p-2 rounded" />
+        </div>
       </div>
+
+      <!-- Type de plan -->
       <div>
-        <label for="prenom">Prénom :</label>
-        <input id="prenom" name="prenom" placeholder="Entrez votre prénom" required class="w-full border p-2 rounded" />
+        <p class="font-bold mb-2">Type de plan souhaité :</p>
+        <label><input type="checkbox" class="plan" value="30000" /> Plan d'architecture</label><br />
+        <label><input type="checkbox" class="plan" value="40000" /> Plan d'exécution</label><br />
+        <label><input type="checkbox" class="plan" value="30000" /> Plan quantitatif</label>
       </div>
+
+      <!-- Projet -->
       <div>
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" placeholder="exemple@email.com" required class="w-full border p-2 rounded" />
+        <label for="projet">Type de projet :</label>
+        <select id="projet" required class="w-full border p-2 rounded">
+          <option value="">-- Choisir --</option>
+          <option value="1.25">Maison</option>
+          <option value="1.5">Bureau</option>
+          <option value="1">Magasin</option>
+          <option value="2">Station</option>
+          <option value="2">Gare de bus</option>
+          <option value="2">École</option>
+          <option value="3">Université</option>
+          <option value="1">Mosquée</option>
+          <option value="1">Autre</option>
+        </select>
       </div>
+
+      <!-- Structure -->
       <div>
-        <label for="telephone">Téléphone :</label>
-        <input type="tel" id="telephone" name="telephone" placeholder="Votre numéro" required class="w-full border p-2 rounded" />
+        <label for="structure">Type de structure :</label>
+        <select id="structure" required class="w-full border p-2 rounded">
+          <option value="">-- Choisir --</option>
+          <option value="1">Béton armé</option>
+          <option value="2">Bois</option>
+          <option value="2">Métallique</option>
+        </select>
+      </div>
+
+      <!-- Détails techniques -->
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label for="longueur">Longueur (m) :</label>
+          <input type="number" id="longueur" min="1" class="w-full border p-2 rounded" />
+        </div>
+        <div>
+          <label for="largeur">Largeur (m) :</label>
+          <input type="number" id="largeur" min="1" class="w-full border p-2 rounded" />
+        </div>
+        <div>
+          <label for="chambres">Chambres :</label>
+          <input type="number" id="chambres" min="0" class="w-full border p-2 rounded" />
+        </div>
+        <div>
+          <label for="etages">Étages :</label>
+          <input type="number" id="etages" min="0" class="w-full border p-2 rounded" />
+        </div>
+        <div>
+          <label for="occupants">Occupants :</label>
+          <input type="number" id="occupants" min="1" class="w-full border p-2 rounded" />
+        </div>
+        <div>
+          <label for="duree">Durée estimée (semaines) :</label>
+          <input type="number" id="duree" min="1" max="52" class="w-full border p-2 rounded" />
+        </div>
+      </div>
+
+      <div>
+        <label for="description">Description :</label>
+        <textarea id="description" rows="4" class="w-full border p-2 rounded"></textarea>
+      </div>
+
+      <!-- Estimation + Boutons -->
+      <div>
+        <button type="button" onclick="calculerPrix()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Calculer le prix</button>
+        <p id="total" class="font-bold mt-3">Prix total estimé : ...</p>
+      </div>
+
+      <button type="button" onclick="afficherResume()" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Envoyer la demande</button>
+    </form>
+
+    <!-- RÉSUMÉ -->
+    <div id="resume" class="hidden bg-gray-100 p-6 rounded shadow-md mt-6">
+      <h3 class="text-xl font-bold mb-4">Résumé de votre demande</h3>
+      <div id="resume-content" class="space-y-2 text-sm"></div>
+      <div class="flex justify-end gap-4 mt-4">
+        <button type="button" onclick="editForm()" class="px-4 py-2 bg-gray-400 text-white rounded">Modifier</button>
+        <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Confirmer l’envoi</button>
       </div>
     </div>
+  </section>
 
-    <!-- Type de plan -->
-    <div>
-      <p class="font-bold mb-2">Type de plan souhaité :</p>
-      <label><input type="checkbox" class="plan" value="30000" /> Plan d'architecture</label><br />
-      <label><input type="checkbox" class="plan" value="40000" /> Plan d'exécution</label><br />
-      <label><input type="checkbox" class="plan" value="30000" /> Plan quantitatif</label>
-    </div>
+  <!-- SCRIPT -->
+  <script>
+    function calculerPrix() {
+      let totalPlans = 0;
+      const checkedPlans = document.querySelectorAll('.plan:checked');
+      checkedPlans.forEach(el => {
+        totalPlans += parseFloat(el.value);
+      });
 
-    <!-- Projet -->
-    <div>
-      <label for="projet">Type de projet :</label>
-      <select id="projet" required class="w-full border p-2 rounded">
-        <option value="">-- Choisir --</option>
-        <option value="1.25">Maison</option>
-        <option value="1.5">Bureau</option>
-        <option value="1">Magasin</option>
-        <option value="2">Station</option>
-        <option value="2">Gare de bus</option>
-        <option value="2">École</option>
-        <option value="3">Université</option>
-        <option value="1">Mosquée</option>
-        <option value="1">Autre</option>
-      </select>
-    </div>
+      if (totalPlans === 0) {
+        alert("Veuillez sélectionner au moins un type de plan.");
+        return;
+      }
 
-    <!-- Structure -->
-    <div>
-      <label for="structure">Type de structure :</label>
-      <select id="structure" required class="w-full border p-2 rounded">
-        <option value="">-- Choisir --</option>
-        <option value="1">Béton armé</option>
-        <option value="2">Bois</option>
-        <option value="2">Métallique</option>
-      </select>
-    </div>
+      const projet = parseFloat(document.getElementById("projet").value || 1);
+      const structure = parseFloat(document.getElementById("structure").value || 1);
+      const longueur = parseFloat(document.getElementById("longueur").value || 0);
+      const largeur = parseFloat(document.getElementById("largeur").value || 0);
+      const surface = longueur * largeur;
 
-    <!-- Détails techniques -->
-    <div class="grid md:grid-cols-2 gap-4">
-      <div>
-        <label for="longueur">Longueur (m) :</label>
-        <input type="number" id="longueur" placeholder="Ex: 20" min="1" class="w-full border p-2 rounded" />
-      </div>
-      <div>
-        <label for="largeur">Largeur (m) :</label>
-        <input type="number" id="largeur" placeholder="Ex: 10" min="1" class="w-full border p-2 rounded" />
-      </div>
-      <div>
-        <label for="chambres">Chambres :</label>
-        <input type="number" id="chambres" placeholder="Ex: 3" min="0" class="w-full border p-2 rounded" />
-      </div>
-      <div>
-        <label for="etages">Étages :</label>
-        <input type="number" id="etages" placeholder="Ex: 2" min="0" class="w-full border p-2 rounded" />
-      </div>
-      <div>
-        <label for="occupants">Occupants :</label>
-        <input type="number" id="occupants" placeholder="Ex: 10" min="1" class="w-full border p-2 rounded" />
-      </div>
-      <div>
-        <label for="duree">Durée estimée (semaines) :</label>
-        <input type="number" id="duree" placeholder="Ex: 12" min="1" max="52" class="w-full border p-2 rounded" />
-      </div>
-    </div>
+      const chambres = parseInt(document.getElementById("chambres").value || 0);
+      const etages = parseInt(document.getElementById("etages").value || 0);
+      const occupants = parseInt(document.getElementById("occupants").value || 0);
+      const duree = parseInt(document.getElementById("duree").value || 1);
 
-    <div>
-      <label for="description">Description :</label>
-      <textarea id="description" placeholder="Décrivez votre projet..." rows="4" class="w-full border p-2 rounded"></textarea>
-    </div>
+      const surfaceCost = (surface / 100) * 0.125 * totalPlans;
+      const chambreCost = chambres * 0.01 * totalPlans;
+      const etageCost = etages * 0.15 * totalPlans;
+      const personneCost = (occupants / 10) * 0.01 * totalPlans;
+      const dureeCost = duree * 0.125 * totalPlans;
 
-    <!-- Estimation + Boutons -->
-    <div>
-      <button type="button" onclick="calculerPrix()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Calculer le prix</button>
-      <p id="total" class="font-bold mt-3">Prix total estimé : ...</p>
-    </div>
+      const total = totalPlans * projet * structure + surfaceCost + chambreCost + etageCost + personneCost + dureeCost;
 
-    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Envoyer la demande</button>
-  </form>
-</section>
-
-<script>
-  async function envoyerFormulaire(event) {
-    event.preventDefault();
-    calculerPrix();
-
-    const form = document.getElementById("formulaire-devis");
-    const prix = document.getElementById("total").innerText;
-    const plans = Array.from(document.querySelectorAll('.plan:checked'))
-      .map(p => p.parentElement.textContent.trim())
-      .join(", ");
-
-    const templateParams = {
-      nom: form.nom.value,
-      prenom: form.prenom.value,
-      email: form.email.value,
-      telephone: form.telephone.value,
-      plans: plans,
-      projet: form.projet.options[form.projet.selectedIndex].text,
-      structure: form.structure.options[form.structure.selectedIndex].text,
-      longueur: form.longueur.value,
-      largeur: form.largeur.value,
-      chambres: form.chambres.value,
-      etages: form.etages.value,
-      occupants: form.occupants.value,
-      duree: form.duree.value,
-      description: form.description.value,
-      prix_total: prix
-    };
-
-    try {
-      await emailjs.send("service_dc9h11q", "wMhD7dOnoijLwaUTdOeea", templateParams);
-
-      alert("Merci ! Votre demande a été envoyée avec succès. Nous vous contacterons bientôt. Vous allez être redirigé vers la page d'accueil.");
-      window.location.href = "/index.html";
-    } catch (error) {
-      alert("Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
-      console.error(error);
+      document.getElementById("total").innerText = "Prix total estimé : " + total.toLocaleString('fr-FR') + " Fr";
     }
-  }
-</script>
 
+    function afficherResume() {
+      calculerPrix();
+
+      const nom = document.getElementById("nom").value;
+      const prenom = document.getElementById("prenom").value;
+      const email = document.getElementById("email").value;
+      const telephone = document.getElementById("telephone").value;
+      const projet = document.getElementById("projet").options[document.getElementById("projet").selectedIndex].text;
+      const structure = document.getElementById("structure").options[document.getElementById("structure").selectedIndex].text;
+      const longueur = document.getElementById("longueur").value;
+      const largeur = document.getElementById("largeur").value;
+      const chambres = document.getElementById("chambres").value;
+      const etages = document.getElementById("etages").value;
+      const occupants = document.getElementById("occupants").value;
+      const duree = document.getElementById("duree").value;
+      const description = document.getElementById("description").value;
+      const prix = document.getElementById("total").innerText;
+
+      const plans = Array.from(document.querySelectorAll('.plan:checked')).map(p => p.parentElement.textContent.trim()).join(", ");
+
+      const resumeHtml = `
+        <p><strong>Nom :</strong> ${nom}</p>
+        <p><strong>Prénom :</strong> ${prenom}</p>
+        <p><strong>Email :</strong> ${email}</p>
+        <p><strong>Téléphone :</strong> ${telephone}</p>
+        <p><strong>Plans sélectionnés :</strong> ${plans}</p>
+        <p><strong>Projet :</strong> ${projet}</p>
+        <p><strong>Structure :</strong> ${structure}</p>
+        <p><strong>Longueur :</strong> ${longueur} m</p>
+        <p><strong>Largeur :</strong> ${largeur} m</p>
+        <p><strong>Chambres :</strong> ${chambres}</p>
+        <p><strong>Étages :</strong> ${etages}</p>
+        <p><strong>Occupants :</strong> ${occupants}</p>
+        <p><strong>Durée estimée :</strong> ${duree} semaines</p>
+        <p><strong>Description :</strong> ${description}</p>
+        <p class="mt-3 font-bold text-lg">${prix}</p>
+      `;
+
+      document.getElementById("resume-content").innerHTML = resumeHtml;
+
+      document.getElementById("formulaire-devis").classList.add("hidden");
+      document.getElementById("resume").classList.remove("hidden");
+    }
+
+    function editForm() {
+      document.getElementById("resume").classList.add("hidden");
+      document.getElementById("formulaire-devis").classList.remove("hidden");
+    }
+  </script>
 
 
 <!-- Footer -->
