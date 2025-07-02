@@ -116,7 +116,7 @@
         <input type="number" id="duree" name="duree" min="1" max="52" step="1" required class="w-full border p-2 rounded">
     
         <label for="longuer" class="block font-medium mt-4">Longueur (en m²) :</label>
-        <input type="number" id="longuer" name="superficie" min="5" required class="w-full border p-2 rounded">
+        <input type="number" id="longueur" name="longueur" min="5" required class="w-full border p-2 rounded">
         <label for="largeur" class="block font-medium mt-4"> Largeur (en m) :</label>
         <input type="number" id="largeur" name="largeur" min="5" required class="w-full border p-2 rounded">
     
@@ -141,52 +141,128 @@
         </button>
         <p id="total" class="font-bold mt-4">Prix total estimé : ...</p>
       </fieldset>
+
+      <div id="resume" class="hidden bg-gray-100 p-6 rounded shadow-md mt-6">
+  <h3 class="text-xl font-bold mb-4">Résumé de votre demande</h3>
+  <div id="resume-content" class="space-y-2 text-sm"></div>
+  <div class="flex justify-end gap-4 mt-4">
+    <button type="button" onclick="editForm()" class="px-4 py-2 bg-gray-400 text-white rounded">Modifier</button>
+    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Confirmer l’envoi</button>
+  </div>
+</div>
+
     
-      <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
-        Envoyer la demande
-      </button>
+      <button type="button" onclick="afficherResume()" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+  Envoyer la demande
+</button>
+
     </form>
 
 
 <!-- JavaScript -->
 <script>
 function calculerPrix() {
-  const plan = parseFloat(document.querySelector('input[name="typePlan"]:checked')?.value || 0);
+  // 1. Additionner les valeurs des plans cochés
+  let totalPlans = 0;
+  document.querySelectorAll('.plan:checked').forEach(input => {
+    totalPlans += parseFloat(input.value);
+  });
+
+  // 2. Récupérer les autres données du formulaire
   const projet = parseFloat(document.getElementById("projet").value || 1);
   const structure = parseFloat(document.getElementById("structure").value || 1);
-  const longueur = parseFloat(document.getElementById("longueur").value || 0);
+  const longueur = parseFloat(document.getElementById("longueur").value || 0); // ← ID corrigé
   const largeur = parseFloat(document.getElementById("largeur").value || 0);
   const surface = largeur * longueur;
+
   const chambres = parseInt(document.getElementById("chambres").value || 0);
   const etages = parseInt(document.getElementById("etages").value || 0);
   const personnes = parseInt(document.getElementById("occupants").value || 0);
   const duree = parseInt(document.getElementById("duree").value || 1);
 
-  const surfaceCost = (surface / 100) * 0.125 * plan;
-  const chambreCost = chambres * 0.01 * plan;
-  const etageCost = etages * 0.15 * plan;
-  const personneCost = (personnes / 10) * 0.01 * plan;
-  const dureeCost = duree * 0.125 * plan;
+  // 3. Calculs
+  const surfaceCost = (surface / 100) * 0.125 * totalPlans;
+  const chambreCost = chambres * 0.01 * totalPlans;
+  const etageCost = etages * 0.15 * totalPlans;
+  const personneCost = (personnes / 10) * 0.01 * totalPlans;
+  const dureeCost = duree * 0.125 * totalPlans;
 
-  const total = plan * projet * structure + surfaceCost + chambreCost + etageCost + personneCost + dureeCost;
+  const total = totalPlans * projet * structure + surfaceCost + chambreCost + etageCost + personneCost + dureeCost;
 
+  // 4. Affichage
   document.getElementById("total").innerText = "Prix total estimé : " + total.toLocaleString('fr-FR') + " Fr";
 }
 
-// Affichage dynamique du champ "Autre projet"
+// Correction du champ "Autre projet"
 document.getElementById("projet").addEventListener("change", function () {
   const autreProjet = document.getElementById("autreProjet");
-  autreProjet.classList.toggle("hidden", this.value !== "1");
+  const selectedOption = this.options[this.selectedIndex].text.toLowerCase();
+  autreProjet.classList.toggle("hidden", selectedOption !== "autre");
 });
+if (totalPlans === 0) {
+  alert("Veuillez sélectionner au moins un type de plan.");
+  return;
+}
 
-// Affichage dynamique du champ "Document à joindre"
-document.querySelectorAll('input[name="typePlan"]').forEach(radio => {
-  radio.addEventListener('change', function () {
-    const fileSection = document.getElementById("fichierPlan");
-    fileSection.classList.toggle("hidden", this.value !== "0");
-  });
-});
+  
 </script>
+    <script>
+function afficherResume() {
+  const nom = document.getElementById("nom").value;
+  const prenom = document.getElementById("prenom").value;
+  const email = document.getElementById("email").value;
+  const telephone = document.getElementById("telephone").value;
+  const projet = document.getElementById("projet").options[document.getElementById("projet").selectedIndex].text;
+  const structure = document.getElementById("structure").options[document.getElementById("structure").selectedIndex].text;
+  const longueur = document.getElementById("longueur").value;
+  const largeur = document.getElementById("largeur").value;
+  const chambres = document.getElementById("chambres").value;
+  const etages = document.getElementById("etages").value;
+  const occupants = document.getElementById("occupants").value;
+  const duree = document.getElementById("duree").value;
+  const description = document.getElementById("description").value;
+
+  const plans = Array.from(document.querySelectorAll('.plan:checked'))
+    .map(el => el.parentElement.textContent.trim())
+    .join(", ");
+
+  // Récupère le prix estimé affiché
+  const prix = document.getElementById("total").innerText;
+
+  const content = `
+    <p><strong>Nom :</strong> ${nom}</p>
+    <p><strong>Prénom :</strong> ${prenom}</p>
+    <p><strong>Email :</strong> ${email}</p>
+    <p><strong>Téléphone :</strong> ${telephone}</p>
+    <p><strong>Type de plan :</strong> ${plans}</p>
+    <p><strong>Projet :</strong> ${projet}</p>
+    <p><strong>Structure :</strong> ${structure}</p>
+    <p><strong>Longueur :</strong> ${longueur} m</p>
+    <p><strong>Largeur :</strong> ${largeur} m</p>
+    <p><strong>Chambres :</strong> ${chambres}</p>
+    <p><strong>Étages :</strong> ${etages}</p>
+    <p><strong>Occupants :</strong> ${occupants}</p>
+    <p><strong>Durée estimée :</strong> ${duree} semaine(s)</p>
+    <p><strong>Description :</strong> ${description}</p>
+    <p class="mt-4 text-lg font-semibold">${prix}</p>
+  `;
+
+  document.getElementById("resume-content").innerHTML = content;
+
+  // Cacher le formulaire, afficher le résumé
+  document.querySelector("form").classList.add("hidden");
+  document.getElementById("resume").classList.remove("hidden");
+}
+
+// Permet de revenir au formulaire
+function editForm() {
+  document.querySelector("form").classList.remove("hidden");
+  document.getElementById("resume").classList.add("hidden");
+}
+</script>
+
+
+
 
 <!-- Footer -->
   <footer class="bg-gray-900 text-white text-center py-6">
