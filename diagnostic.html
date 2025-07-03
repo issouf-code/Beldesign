@@ -45,35 +45,61 @@
       <h3 class="text-lg text-gray-700">BEL-Design Diagnostic est à votre disposition pour des consultations gratuites.<br>Veuillez remplir ce formulaire afin d'identifier les problèmes et vous fournir des solutions avant qu'il ne soit trop tard.</h3>
     </section>
 
-    <!-- Formulaire -->
-    <form action="#" method="POST" enctype="multipart/form-data" class="bg-gray-50 shadow-md rounded p-6 space-y-6">
-      <div>
-        <label for="name" class="block font-medium text-gray-700">Nom et prénom</label>
-        <input type="text" id="name" name="name" placeholder="Votre nom complet" class="w-full mt-1 p-2 border border-gray-300 rounded">
-      </div>
+<!-- Diagnostic Intro -->
+<main class="max-w-3xl mx-auto p-6 space-y-8">
+  <section class="text-center mt-10">
+    <h3 class="text-2xl font-semibold text-blue-800 mb-4">
+      Votre bâtiment présente des fissures ou des signes de dégradation ?
+    </h3>
+    <p class="text-lg text-gray-700">
+      Le service de diagnostic à distance de <strong>BEL-Design</strong> est là pour vous aider. 
+      Remplissez ce formulaire pour recevoir une consultation professionnelle gratuite et éviter que la situation ne s’aggrave.
+    </p>
+  </section>
 
-      <div>
-        <label for="name" class="block font-medium text-gray-700">Numero de telephone</label>
-        <input type="tel" id="phone" name="phone" placeholder="Votre numero" class="w-full mt-1 p-2 border border-gray-300 rounded">
-      </div>
+  <!-- Diagnostic Form -->
+  <form action="#" method="POST" enctype="multipart/form-data" class="bg-gray-50 shadow-md rounded p-6 space-y-6">
+    
+    <div>
+      <label for="name" class="block font-medium text-gray-700">Nom complet</label>
+      <input type="text" id="name" name="name" placeholder="Entrez votre nom et prénom" class="w-full mt-1 p-2 border border-gray-300 rounded" required>
+    </div>
 
-      <div>
-        <label for="dure" class="block font-medium text-gray-700">La durée de votre maison (en années)</label>
-        <input type="number" id="dure" name="dure" placeholder="Ex: 10" class="w-full mt-1 p-2 border border-gray-300 rounded">
-      </div>
+    <div>
+      <label for="phone" class="block font-medium text-gray-700">Numéro de téléphone</label>
+      <input type="tel" id="phone" name="phone" placeholder="Ex : +234 801 234 5678" class="w-full mt-1 p-2 border border-gray-300 rounded" required>
+    </div>
 
-      <div>
-        <label for="images" class="block font-medium text-gray-700">Entrez les photos des problèmes</label>
-        <input type="file" id="images" name="images" accept="image/*" multiple class="mt-1">
-      </div>
+    <div>
+      <label for="location" class="block font-medium text-gray-700">Localisation du bâtiment</label>
+      <input type="text" id="location" name="location" placeholder="Ville ou quartier (ex : Abuja, Garki II)" class="w-full mt-1 p-2 border border-gray-300 rounded" required>
+    </div>
 
-      <div>
-        <button type="submit" class="bg-brown-600 hover:bg-brown-700 text-white px-4 py-2 rounded shadow">
-          <i class="fas fa-paper-plane"></i> Envoyer
-        </button>
-      </div>
-    </form>
-  </main>
+    <div>
+      <label for="dure" class="block font-medium text-gray-700">Âge du bâtiment (en années)</label>
+      <input type="number" id="dure" name="dure" placeholder="Ex : 10" min="0" class="w-full mt-1 p-2 border border-gray-300 rounded" required>
+    </div>
+
+    <div>
+      <label for="description" class="block font-medium text-gray-700">Description du problème constaté</label>
+      <textarea id="description" name="description" rows="4" placeholder="Décrivez les fissures, affaissements ou autres symptômes visibles..." class="w-full mt-1 p-2 border border-gray-300 rounded" required></textarea>
+    </div>
+
+    <div>
+      <label for="images" class="block font-medium text-gray-700">Photos des dommages constatés</label>
+      <input type="file" id="images" name="images" accept="image/*" multiple class="mt-1" required>
+      <p class="text-sm text-gray-500 mt-1">Ajoutez au moins 2 photos montrant clairement les zones endommagées.</p>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="bg-brown-600 hover:bg-brown-700 text-white px-5 py-2 rounded shadow text-lg">
+        <i class="fas fa-paper-plane"></i> Soumettre le diagnostic
+      </button>
+    </div>
+
+  </form>
+</main>
+
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white text-center py-6">
