@@ -45,111 +45,100 @@
     Bienvenue dans notre univers de design
   </h2>
   <p class="mt-2 text-gray-600 text-lg">
-    Découvrez des créations inspirées et des histoires visuelles signées BEL Design.
+    Découvrez des créations inspirées et des histoires visuelles signées <strong>BEL Design</strong>.
   </p>
 </section>
 
-
-  <!-- Gallery Component -->
-  <div class="max-w-4xl mx-auto bg-white p-6 rounded shadow-md">
-    <!-- Large Preview -->
-    <div class="mb-6">
-      <img id="previewImage" src="images/img1.jpg" alt="Aperçu principal" class="w-full h-64 object-cover rounded shadow transition duration-300" />
-    </div>
-
-    <!-- Controls -->
-    <div class="flex items-center justify-between mb-4">
-      <button id="prevGroup" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-3 py-1 rounded shadow">
-        ← Précédent
-      </button>
-      <div class="text-gray-600 font-medium">Groupe <span id="groupIndicator">1</span></div>
-      <button id="nextGroup" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-3 py-1 rounded shadow">
-        Suivant →
-      </button>
-    </div>
-
-    <!-- Thumbnails -->
-    <div id="thumbnailContainer" class="grid grid-cols-3 md:grid-cols-5 gap-4">
-      <!-- JS will render thumbnails here -->
-    </div>
+<!-- Galerie principale -->
+<div class="max-w-5xl mx-auto bg-white p-6 md:p-10 rounded shadow-md transition-all duration-300" id="galleryTop">
+  <!-- Image principale -->
+  <div class="mb-6">
+    <img id="previewImage" src="images/img1.jpg" alt="Aperçu principal" class="w-full h-64 md:h-96 object-cover rounded shadow-md transition duration-300 ease-in-out" />
   </div>
 
-  <!-- Gallery Logic Script -->
-  <script>
-    const imageGroups = [
-      [
-    "images/des1-1.jpg", "images/des1-2.jpg", "images/des1-3.jpg", "images/des1-4.jpg", "images/des1-5.jpg",
-    "images/des1-6.jpg", "images/des1-7.jpg", "images/des1-8.jpg", "images/des1-9.jpg", "images/des1-10.jpg",
-    "images/des1-11.jpg", "images/des1-12.jpg", "images/des1-13.jpg", "images/des1-14.jpg", "images/des1-15.jpg",
-    "images/des1-16.jpg", "images/des1-17.jpg", "images/des1-18.jpg", "images/des1-19.jpg", "images/des1-20.jpg",
-    "images/des1-21.jpg", "images/des1-22.jpg", "images/des1-23.jpg", "images/des1-24.jpg", "images/des1-25.jpg",
-    "images/des1-26.jpg", "images/des1-27.jpg", "images/des1-28.jpg", "images/des1-29.jpg"
-],
-      ["images/des2-1.png", "images/des2-2.png", "images/des2-3.png", "images/des2-4.png",
-     "images/des2-5.png", "images/des2-6.png", "images/des2-7.png", "images/des2-8.png"],
+  <!-- Contrôles -->
+  <div class="flex items-center justify-between mb-6">
+    <button id="prevGroup" class="bg-blue-100 hover:bg-blue-200 text-blue-800 font-semibold px-4 py-2 rounded shadow transition">
+      ← Précédent
+    </button>
+    <div class="text-gray-700 font-semibold text-lg">
+      Groupe <span id="groupIndicator">1</span> / 8
+    </div>
+    <button id="nextGroup" class="bg-blue-100 hover:bg-blue-200 text-blue-800 font-semibold px-4 py-2 rounded shadow transition">
+      Suivant →
+    </button>
+  </div>
 
-    ["images/des3-1.png", "images/des3-2.png", "images/des3-3.png", "images/des3-4.png",
-     "images/des3-5.png", "images/des3-6.png", "images/des3-7.png", "images/des3-8.png"],
+  <!-- Miniatures -->
+  <div id="thumbnailContainer" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 transition-all">
+    <!-- Les miniatures seront insérées ici via JS -->
+    <p class="text-center text-gray-600 mb-4 text-sm md:text-base italic">
+  Cliquez sur une image miniature ci-dessous pour l’afficher en grand.
+</p>
 
-    ["images/des4-1.png", "images/des4-2.png", "images/des4-3.png", "images/des4-4.png",
-     "images/des4-5.png", "images/des4-6.png", "images/des4-7.png", "images/des4-8.png"],
+  </div>
+</div>
 
-    ["images/des5-1.png", "images/des5-2.png", "images/des5-3.png", "images/des5-4.png",
-     "images/des5-5.png", "images/des5-6.png", "images/des5-7.png", "images/des5-8.png",
-     "images/des5-9.png"],
+<!-- Script JS amélioré -->
+<script>
+  const imageGroups = [
+    ["images/des1-1.jpg", "images/des1-2.jpg", "images/des1-3.jpg", "images/des1-4.jpg", "images/des1-5.jpg", "images/des1-6.jpg", "images/des1-7.jpg", "images/des1-8.jpg", "images/des1-9.jpg", "images/des1-10.jpg", "images/des1-11.jpg", "images/des1-12.jpg", "images/des1-13.jpg", "images/des1-14.jpg", "images/des1-15.jpg", "images/des1-16.jpg", "images/des1-17.jpg", "images/des1-18.jpg", "images/des1-19.jpg", "images/des1-20.jpg", "images/des1-21.jpg", "images/des1-22.jpg", "images/des1-23.jpg", "images/des1-24.jpg", "images/des1-25.jpg", "images/des1-26.jpg", "images/des1-27.jpg", "images/des1-28.jpg", "images/des1-29.jpg"],
+    ["images/des2-1.png", "images/des2-2.png", "images/des2-3.png", "images/des2-4.png", "images/des2-5.png", "images/des2-6.png", "images/des2-7.png", "images/des2-8.png"],
+    ["images/des3-1.png", "images/des3-2.png", "images/des3-3.png", "images/des3-4.png", "images/des3-5.png", "images/des3-6.png", "images/des3-7.png", "images/des3-8.png"],
+    ["images/des4-1.png", "images/des4-2.png", "images/des4-3.png", "images/des4-4.png", "images/des4-5.png", "images/des4-6.png", "images/des4-7.png", "images/des4-8.png"],
+    ["images/des5-1.png", "images/des5-2.png", "images/des5-3.png", "images/des5-4.png", "images/des5-5.png", "images/des5-6.png", "images/des5-7.png", "images/des5-8.png", "images/des5-9.png"],
+    ["images/des6-1.png", "images/des6-2.png", "images/des6-3.png", "images/des6-4.png", "images/des6-5.png", "images/des6-6.png", "images/des6-7.png", "images/des6-8.png", "images/des6-9.png"],
+    ["images/des7-1.png", "images/des7-2.png", "images/des7-3.png", "images/des7-4.png", "images/des7-5.png", "images/des7-6.png", "images/des7-7.png", "images/des7-8.png", "images/des7-9.png", "images/des7-10.png", "images/des7-11.png", "images/des7-12.png", "images/des7-13.png", "images/des7-14.png"],
+    ["images/des8-1.png", "images/des8-2.png", "images/des8-3.png", "images/des8-4.png", "images/des8-5.png"]
+  ];
 
-    ["images/des6-1.png", "images/des6-2.png", "images/des6-3.png", "images/des6-4.png",
-     "images/des6-5.png", "images/des6-6.png", "images/des6-7.png", "images/des6-8.png",
-     "images/des6-9.png"],
+  let currentGroup = 0;
 
-    ["images/des7-1.png", "images/des7-2.png", "images/des7-3.png", "images/des7-4.png",
-     "images/des7-5.png", "images/des7-6.png", "images/des7-7.png", "images/des7-8.png",
-     "images/des7-9.png", "images/des7-10.png", "images/des7-11.png", "images/des7-12.png",
-     "images/des7-13.png", "images/des7-14.png"],
+  const previewImage = document.getElementById("previewImage");
+  const thumbnailContainer = document.getElementById("thumbnailContainer");
+  const groupIndicator = document.getElementById("groupIndicator");
 
-    ["images/des8-1.png", "images/des8-2.png", "images/des8-3.png", "images/des8-4.png",
-     "images/des8-5.png"]
-]
-      
-      ;
+  function scrollToTopOfGallery() {
+    document.getElementById("galleryTop").scrollIntoView({ behavior: "smooth" });
+  }
 
-    let currentGroup = 0;
+  function loadThumbnails(groupIndex) {
+    thumbnailContainer.innerHTML = "";
+    const group = imageGroups[groupIndex];
 
-    const previewImage = document.getElementById("previewImage");
-    const thumbnailContainer = document.getElementById("thumbnailContainer");
-    const groupIndicator = document.getElementById("groupIndicator");
+    // Update preview
+    previewImage.src = group[0];
+    groupIndicator.textContent = groupIndex + 1;
 
-    function loadThumbnails(groupIndex) {
-      thumbnailContainer.innerHTML = "";
-      const group = imageGroups[groupIndex];
-      previewImage.src = group[0];
-      groupIndicator.textContent = groupIndex + 1;
-
-      group.forEach((src, index) => {
-        const img = document.createElement("img");
-        img.src = src;
-        img.alt = `Miniature ${index + 1}`;
-        img.className = "cursor-pointer rounded hover:scale-105 transition duration-300 shadow";
-        img.onclick = () => {
-          previewImage.src = src;
-        };
-        thumbnailContainer.appendChild(img);
-      });
-    }
-
-    document.getElementById("prevGroup").addEventListener("click", () => {
-      currentGroup = (currentGroup - 1 + imageGroups.length) % imageGroups.length;
-      loadThumbnails(currentGroup);
+    group.forEach((src, index) => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = `Miniature ${index + 1}`;
+      img.className = "w-full h-24 object-cover cursor-pointer rounded-md hover:ring-2 ring-blue-400 hover:scale-105 transition-all duration-300 shadow-sm";
+      img.onclick = () => {
+        previewImage.src = src;
+        previewImage.classList.add("scale-95");
+        setTimeout(() => previewImage.classList.remove("scale-95"), 150);
+      };
+      thumbnailContainer.appendChild(img);
     });
 
-    document.getElementById("nextGroup").addEventListener("click", () => {
-      currentGroup = (currentGroup + 1) % imageGroups.length;
-      loadThumbnails(currentGroup);
-    });
+    scrollToTopOfGallery();
+  }
 
-    // Initial load
+  document.getElementById("prevGroup").addEventListener("click", () => {
+    currentGroup = (currentGroup - 1 + imageGroups.length) % imageGroups.length;
     loadThumbnails(currentGroup);
-  </script>
+  });
+
+  document.getElementById("nextGroup").addEventListener("click", () => {
+    currentGroup = (currentGroup + 1) % imageGroups.length;
+    loadThumbnails(currentGroup);
+  });
+
+  // Chargement initial
+  loadThumbnails(currentGroup);
+</script>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white text-center py-6 mt-10">
