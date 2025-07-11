@@ -222,29 +222,30 @@
 </div>
 
  <script>
-  const slider = document.getElementById("hero-slider");
+  document.addEventListener("DOMContentLoaded", () => {
+    const slider = document.getElementById("hero-slider");
 
-  const images = [
-    'images/des1-1.jpg',
-    'images/des1-2.jpg',
-    'images/des1-3.jpg',
-    'images/des1-4.jpg'
-  ];
+    const images = [
+      'images/des1-1.jpg',
+      'images/des1-2.jpg',
+      'images/des1-3.jpg',
+      'images/des1-4.jpg'
+    ];
 
-  let current = 0;
+    let current = 0;
 
-  function changeSlide() {
-    current = (current + 1) % images.length;
-    slider.style.backgroundImage = url('${images[current]}');
-  }
+    function changeSlide() {
+      current = (current + 1) % images.length;
+      slider.style.backgroundImage = `url('${images[current]}')`;
+    }
 
-  // Initial background
-  slider.style.backgroundImage = url('${images[0]}');
+    // Set initial background image
+    slider.style.backgroundImage = `url('${images[0]}')`;
 
-  // Start the slideshow (every 5 seconds)
-  setInterval(changeSlide, 5000);
+    // Start the slideshow every 5 seconds
+    setInterval(changeSlide, 5000);
+  });
 </script>
-
 
 
 
