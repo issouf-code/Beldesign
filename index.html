@@ -162,26 +162,20 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
     <!-- Gallery Item -->
     <div class="overflow-hidden rounded-lg shadow hover:shadow-xl transform hover:scale-105 transition duration-500 bg-white">
-      <img src="images/des1-10.jpg" alt="Projet Résidentiel Moderne" loading="lazy" class="w-full h-64 object-cover">
-      <div class="p-4">
-       
-      </div>
+      <img src="images/des1-7.jpg" alt="Projet Résidentiel Moderne" loading="lazy" class="w-full h-64 object-cover">
+      
     </div>
 
     <!-- Gallery Item -->
     <div class="overflow-hidden rounded-lg shadow hover:shadow-xl transform hover:scale-105 transition duration-500 bg-white">
-      <img src="images/des8-1.jpg" alt="Bâtiment Institutionnel" loading="lazy" class="w-full h-64 object-cover">
-      <div class="p-4">
-        
-      </div>
+      <img src="images/des3-3.jpg" alt="Bâtiment Institutionnel" loading="lazy" class="w-full h-64 object-cover">
+      
     </div>
 
     <!-- Gallery Item -->
     <div class="overflow-hidden rounded-lg shadow hover:shadow-xl transform hover:scale-105 transition duration-500 bg-white">
       <img src="images/des5-3.jpg" alt="Conception Commerciale" loading="lazy" class="w-full h-64 object-cover">
-      <div class="p-4">
-        
-      </div>
+      
     </div>
   </div>
 
@@ -227,7 +221,7 @@
   <!-- Menu content -->
 </div>
 
-  <script>
+ <script>
   const slider = document.getElementById("hero-slider");
 
   const images = [
@@ -240,16 +234,21 @@
   let current = 0;
 
   function changeSlide() {
-    current = (current + 1) % images.length;
-    slider.style.backgroundImage = `url('${images[current]}')`;
+    // Fade out
+    slider.classList.add('opacity-0');
+
+    setTimeout(() => {
+      current = (current + 1) % images.length;
+      slider.style.backgroundImage = `url('${images[current]}')`;
+      // Fade in
+      slider.classList.remove('opacity-0');
+    }, 1000); // match the duration of the CSS transition
   }
 
-  // Initial background
-  slider.style.backgroundImage = `url('${images[0]}')`;
-
-  // Start the slideshow (every 5 seconds)
+  // Start the slideshow
   setInterval(changeSlide, 5000);
 </script>
+
 
 
 <script>
