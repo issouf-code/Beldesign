@@ -234,20 +234,18 @@
   let current = 0;
 
   function changeSlide() {
-    // Fade out
-    slider.classList.add('opacity-0');
-
-    setTimeout(() => {
-      current = (current + 1) % images.length;
-      slider.style.backgroundImage = `url('${images[current]}')`;
-      // Fade in
-      slider.classList.remove('opacity-0');
-    }, 1000); // match the duration of the CSS transition
+    current = (current + 1) % images.length;
+    slider.style.backgroundImage = url('${images[current]}');
   }
 
-  // Start the slideshow
+  // Initial background
+  slider.style.backgroundImage = url('${images[0]}');
+
+  // Start the slideshow (every 5 seconds)
   setInterval(changeSlide, 5000);
 </script>
+
+
 
 
 
