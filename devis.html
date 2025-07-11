@@ -95,15 +95,15 @@
         <label for="projet">Type de projet :</label>
         <select id="projet" required class="w-full border p-2 rounded">
           <option value="">-- Choisir --</option>
-          <option value="1.25">Maison</option>
-          <option value="1.5">Bureau</option>
-          <option value="1">Magasin</option>
-          <option value="2">Station</option>
-          <option value="2">Gare de bus</option>
-          <option value="2">École</option>
-          <option value="3">Université</option>
-          <option value="1">Mosquée</option>
-          <option value="1">Autre</option>
+          <option value="0.125">Maison</option>
+          <option value="0.15">Bureau</option>
+          <option value="0.1">Magasin</option>
+          <option value="0.2">Station</option>
+          <option value="0.2">Gare de bus</option>
+          <option value="0.2">École</option>
+          <option value="0.3">Université</option>
+          <option value="0.1">Mosquée</option>
+          <option value="0.1">Autre</option>
         </select>
       </div>
 
@@ -218,6 +218,7 @@
       const structure = document.getElementById("structure").options[document.getElementById("structure").selectedIndex].text;
       const longueur = document.getElementById("longueur").value;
       const largeur = document.getElementById("largeur").value;
+      const surface = document.getElementById("surface");
       const chambres = document.getElementById("chambres").value;
       const etages = document.getElementById("etages").value;
       const occupants = document.getElementById("occupants").value;
@@ -237,6 +238,7 @@
         <p><strong>Structure :</strong> ${structure}</p>
         <p><strong>Longueur :</strong> ${longueur} m</p>
         <p><strong>Largeur :</strong> ${largeur} m</p>
+        <p><strong>Largeur :</strong> ${superficie} m2</p>
         <p><strong>Chambres :</strong> ${chambres}</p>
         <p><strong>Étages :</strong> ${etages}</p>
         <p><strong>Occupants :</strong> ${occupants}</p>
