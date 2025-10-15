@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BEL Design - Devis</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome for Icons -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -13,87 +12,73 @@
     referrerpolicy="no-referrer"
   />
 </head>
+
 <body class="bg-white text-gray-800">
 
-  <!-- Header + Navigation -->
+  <!-- Header -->
   <header class="bg-gradient-to-r from-gray-300 to-gray-500 text-white shadow-md relative z-50">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-    <a href="index.html">
-      <img src="images/logo.png" alt="BEL Design Logo" class="h-10 w-auto" />
-    </a>
-    <button id="menu-toggle" class="md:hidden text-white text-2xl">
-      <i class="fas fa-bars"></i>
-    </button>
-    
-    <!-- Desktop Menu -->
-    <nav class="hidden md:flex gap-4 text-sm md:text-base">
-      <a href="index.html" class="flex items-center gap-1 hover:underline hover:text-gray-200"><i class="fas fa-home"></i> Accueil</a>
-      <a href="services.html" class="flex items-center gap-1 hover:underline hover:text-gray-200"><i class="fas fa-cogs"></i> Services</a>
-      <a href="devis.html" class="flex items-center gap-1 hover:underline hover:text-gray-200"><i class="fas fa-file-alt"></i> Devis</a>
-      <a href="diagnostic.html" class="flex items-center gap-1 hover:underline hover:text-gray-200"><i class="fas fa-stethoscope"></i> Diagnostic</a>
-      <a href="gallery.html" class="flex items-center gap-1 hover:underline hover:text-gray-200"><i class="fas fa-images"></i> Galerie</a>
-      <a href="about.html" class="flex items-center gap-1 hover:underline hover:text-gray-200"><i class="fas fa-users"></i> À Propos</a>
-      <a href="contact.html" class="flex items-center gap-1 hover:underline hover:text-gray-200"><i class="fas fa-envelope"></i> Contact</a>
-    </nav>
-  </div>
-
-  <!-- Mobile Slide-in Menu -->
-  <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-white text-gray-800 shadow-lg transform translate-x-full transition-transform duration-300 z-50 md:hidden">
-    <div class="p-4">
-      <button id="menu-close" class="text-gray-600 text-2xl float-right">
-        <i class="fas fa-times"></i>
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html">
+        <img src="images/logo.png" alt="BEL Design Logo" class="h-10 w-auto" />
+      </a>
+      <button id="menu-toggle" class="md:hidden text-white text-2xl">
+        <i class="fas fa-bars"></i>
       </button>
+      <nav class="hidden md:flex gap-4 text-sm md:text-base">
+        <a href="index.html" class="flex items-center gap-1 hover:underline hover:text-gray-200"><i class="fas fa-home"></i> Accueil</a>
+        <a href="services.html" class="flex items-center gap-1 hover:underline hover:text-gray-200"><i class="fas fa-cogs"></i> Services</a>
+        <a href="devis.html" class="flex items-center gap-1 hover:underline hover:text-gray-200"><i class="fas fa-file-alt"></i> Devis</a>
+        <a href="diagnostic.html" class="flex items-center gap-1 hover:underline hover:text-gray-200"><i class="fas fa-stethoscope"></i> Diagnostic</a>
+        <a href="gallery.html" class="flex items-center gap-1 hover:underline hover:text-gray-200"><i class="fas fa-images"></i> Galerie</a>
+        <a href="about.html" class="flex items-center gap-1 hover:underline hover:text-gray-200"><i class="fas fa-users"></i> À Propos</a>
+        <a href="contact.html" class="flex items-center gap-1 hover:underline hover:text-gray-200"><i class="fas fa-envelope"></i> Contact</a>
+      </nav>
     </div>
-    <ul class="flex flex-col gap-4 px-6 mt-8 text-base">
-      <li><a href="index.html" class="flex items-center gap-2 hover:text-blue-600"><i class="fas fa-home"></i> Accueil</a></li>
-      <li><a href="services.html" class="flex items-center gap-2 hover:text-blue-600"><i class="fas fa-cogs"></i> Services</a></li>
-      <li><a href="devis.html" class="flex items-center gap-2 hover:text-blue-600"><i class="fas fa-file-alt"></i> Devis</a></li>
-      <li><a href="diagnostic.html" class="flex items-center gap-2 hover:text-blue-600"><i class="fas fa-stethoscope"></i> Diagnostic</a></li>
-      <li><a href="gallery.html" class="flex items-center gap-2 hover:text-blue-600"><i class="fas fa-images"></i> Galerie</a></li>
-      <li><a href="about.html" class="flex items-center gap-2 hover:text-blue-600"><i class="fas fa-users"></i> À Propos</a></li>
-      <li><a href="contact.html" class="flex items-center gap-2 hover:text-blue-600"><i class="fas fa-envelope"></i> Contact</a></li>
-    </ul>
-  </div>
-</header>
 
-<!-- Formulaire -->
-<section class="py-10 px-6 max-w-4xl mx-auto">
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-white text-gray-800 shadow-lg transform translate-x-full transition-transform duration-300 z-50 md:hidden">
+      <div class="p-4">
+        <button id="menu-close" class="text-gray-600 text-2xl float-right">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <ul class="flex flex-col gap-4 px-6 mt-8 text-base">
+        <li><a href="index.html" class="flex items-center gap-2 hover:text-blue-600"><i class="fas fa-home"></i> Accueil</a></li>
+        <li><a href="services.html" class="flex items-center gap-2 hover:text-blue-600"><i class="fas fa-cogs"></i> Services</a></li>
+        <li><a href="devis.html" class="flex items-center gap-2 hover:text-blue-600"><i class="fas fa-file-alt"></i> Devis</a></li>
+        <li><a href="diagnostic.html" class="flex items-center gap-2 hover:text-blue-600"><i class="fas fa-stethoscope"></i> Diagnostic</a></li>
+        <li><a href="gallery.html" class="flex items-center gap-2 hover:text-blue-600"><i class="fas fa-images"></i> Galerie</a></li>
+        <li><a href="about.html" class="flex items-center gap-2 hover:text-blue-600"><i class="fas fa-users"></i> À Propos</a></li>
+        <li><a href="contact.html" class="flex items-center gap-2 hover:text-blue-600"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Formulaire Devis -->
+  <section class="py-10 px-6 max-w-4xl mx-auto">
     <h1 class="text-3xl font-bold text-center mb-6">Demande de Devis</h1>
 
-    <!-- FORMULAIRE -->
     <form id="formulaire-devis" class="bg-white p-6 rounded shadow space-y-6" onsubmit="return false">
       <!-- Infos personnelles -->
       <div class="grid md:grid-cols-2 gap-4">
-        <div>
-          <label for="nom">Nom :</label>
-          <input id="nom" name="nom" required class="w-full border p-2 rounded" />
-        </div>
-        <div>
-          <label for="prenom">Prénom :</label>
-          <input id="prenom" name="prenom" required class="w-full border p-2 rounded" />
-        </div>
-        <div>
-          <label for="email">Email :</label>
-          <input type="email" id="email" name="email" required class="w-full border p-2 rounded" />
-        </div>
-        <div>
-          <label for="telephone">Téléphone :</label>
-          <input type="tel" id="telephone" name="telephone" required class="w-full border p-2 rounded" />
-        </div>
+        <div><label for="nom">Nom :</label><input id="nom" class="w-full border p-2 rounded" required></div>
+        <div><label for="prenom">Prénom :</label><input id="prenom" class="w-full border p-2 rounded" required></div>
+        <div><label for="email">Email :</label><input id="email" type="email" class="w-full border p-2 rounded" required></div>
+        <div><label for="telephone">Téléphone :</label><input id="telephone" type="tel" class="w-full border p-2 rounded" required></div>
       </div>
 
-      <!-- Type de plan -->
+      <!-- Types de plan -->
       <div>
         <p class="font-bold mb-2">Type de plan souhaité :</p>
-        <label><input type="checkbox" class="plan" value="30000" /> Plan d'architecture</label><br />
-        <label><input type="checkbox" class="plan" value="40000" /> Plan d'exécution</label><br />
-        <label><input type="checkbox" class="plan" value="30000" /> Plan quantitatif</label>
+        <label><input type="checkbox" class="plan" value="30000"> Plan d'architecture</label><br>
+        <label><input type="checkbox" class="plan" value="40000"> Plan d'exécution</label><br>
+        <label><input type="checkbox" class="plan" value="30000"> Plan quantitatif</label>
       </div>
 
-      <!-- Projet -->
+      <!-- Type de projet -->
       <div>
         <label for="projet">Type de projet :</label>
-        <select id="projet" required class="w-full border p-2 rounded">
+        <select id="projet" class="w-full border p-2 rounded" required>
           <option value="">-- Choisir --</option>
           <option value="0.125">Maison</option>
           <option value="0.15">Bureau</option>
@@ -110,7 +95,7 @@
       <!-- Structure -->
       <div>
         <label for="structure">Type de structure :</label>
-        <select id="structure" required class="w-full border p-2 rounded">
+        <select id="structure" class="w-full border p-2 rounded" required>
           <option value="">-- Choisir --</option>
           <option value="1">Béton armé</option>
           <option value="2">Bois</option>
@@ -118,40 +103,18 @@
         </select>
       </div>
 
-      <!-- Détails techniques -->
+      <!-- Détails -->
       <div class="grid md:grid-cols-2 gap-4">
-        <div>
-          <label for="longueur">Longueur (m) :</label>
-          <input type="number" id="longueur" min="1" class="w-full border p-2 rounded" />
-        </div>
-        <div>
-          <label for="largeur">Largeur (m) :</label>
-          <input type="number" id="largeur" min="1" class="w-full border p-2 rounded" />
-        </div>
-        <div>
-          <label for="chambres">Chambres :</label>
-          <input type="number" id="chambres" min="0" class="w-full border p-2 rounded" />
-        </div>
-        <div>
-          <label for="etages">Étages :</label>
-          <input type="number" id="etages" min="0" class="w-full border p-2 rounded" />
-        </div>
-        <div>
-          <label for="occupants">Occupants :</label>
-          <input type="number" id="occupants" min="1" class="w-full border p-2 rounded" />
-        </div>
-        <div>
-          <label for="duree">Durée estimée (semaines) :</label>
-          <input type="number" id="duree" min="1" max="52" class="w-full border p-2 rounded" />
-        </div>
+        <div><label for="longueur">Longueur (m) :</label><input id="longueur" type="number" class="w-full border p-2 rounded" min="1"></div>
+        <div><label for="largeur">Largeur (m) :</label><input id="largeur" type="number" class="w-full border p-2 rounded" min="1"></div>
+        <div><label for="chambres">Chambres :</label><input id="chambres" type="number" class="w-full border p-2 rounded" min="0"></div>
+        <div><label for="etages">Étages :</label><input id="etages" type="number" class="w-full border p-2 rounded" min="0"></div>
+        <div><label for="occupants">Occupants :</label><input id="occupants" type="number" class="w-full border p-2 rounded" min="1"></div>
+        <div><label for="duree">Durée estimée (semaines) :</label><input id="duree" type="number" class="w-full border p-2 rounded" min="1" max="52"></div>
       </div>
 
-      <div>
-        <label for="description">Description :</label>
-        <textarea id="description" rows="4" class="w-full border p-2 rounded"></textarea>
-      </div>
+      <div><label for="description">Description :</label><textarea id="description" rows="4" class="w-full border p-2 rounded"></textarea></div>
 
-      <!-- Estimation + Boutons -->
       <div>
         <button type="button" onclick="calculerPrix()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Calculer le prix</button>
         <p id="total" class="font-bold mt-3">Prix total estimé : ...</p>
@@ -160,8 +123,7 @@
       <button type="button" onclick="afficherResume()" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Envoyer la demande</button>
     </form>
 
-    <!-- RÉSUMÉ -->
-    <div id="resume" class="hidden bg-gray-100 p-6 rounded shadow-md mt-6">
+    <div id="resume" class="hidden bg-gray-100 p-6 rounded shadow-md mt-6 transition-all duration-500">
       <h3 class="text-xl font-bold mb-4">Résumé de votre demande</h3>
       <div id="resume-content" class="space-y-2 text-sm"></div>
       <div class="flex justify-end gap-4 mt-4">
@@ -171,38 +133,28 @@
     </div>
   </section>
 
-  <!-- SCRIPT -->
+  <!-- JavaScript -->
   <script>
     function calculerPrix() {
-      let totalPlans = 0;
-      const checkedPlans = document.querySelectorAll('.plan:checked');
-      checkedPlans.forEach(el => {
-        totalPlans += parseFloat(el.value);
-      });
-
-      if (totalPlans === 0) {
+      const plans = document.querySelectorAll('.plan:checked');
+      if (plans.length === 0) {
         alert("Veuillez sélectionner au moins un type de plan.");
         return;
       }
 
+      const totalPlans = Array.from(plans).reduce((sum, el) => sum + parseFloat(el.value), 0);
       const projet = parseFloat(document.getElementById("projet").value || 1);
       const structure = parseFloat(document.getElementById("structure").value || 1);
       const longueur = parseFloat(document.getElementById("longueur").value || 0);
       const largeur = parseFloat(document.getElementById("largeur").value || 0);
-      const surface = longueur * largeur;
+      const superficie = longueur * largeur;
 
       const chambres = parseInt(document.getElementById("chambres").value || 0);
       const etages = parseInt(document.getElementById("etages").value || 0);
       const occupants = parseInt(document.getElementById("occupants").value || 0);
       const duree = parseInt(document.getElementById("duree").value || 1);
 
-      const surfaceCost = (surface / 100) * 0.125 * totalPlans;
-      const chambreCost = chambres * 0.01 * totalPlans;
-      const etageCost = etages * 0.15 * totalPlans;
-      const personneCost = (occupants / 10) * 0.01 * totalPlans;
-      const dureeCost = duree * 0.125 * totalPlans;
-
-      const total = totalPlans * projet * structure + surfaceCost + chambreCost + etageCost + personneCost + dureeCost;
+      const total = totalPlans * projet * structure + superficie * 0.125 + chambres * 0.01 * totalPlans + etages * 0.15 * totalPlans + occupants * 0.01 * totalPlans + duree * 0.125 * totalPlans;
 
       document.getElementById("total").innerText = "Prix total estimé : " + total.toLocaleString('fr-FR') + " Fr";
     }
@@ -210,81 +162,53 @@
     function afficherResume() {
       calculerPrix();
 
-      const nom = document.getElementById("nom").value;
-      const prenom = document.getElementById("prenom").value;
-      const email = document.getElementById("email").value;
-      const telephone = document.getElementById("telephone").value;
-      const projet = document.getElementById("projet").options[document.getElementById("projet").selectedIndex].text;
-      const structure = document.getElementById("structure").options[document.getElementById("structure").selectedIndex].text;
-      const longueur = document.getElementById("longueur").value;
-      const largeur = document.getElementById("largeur").value;
-      const surface = document.getElementById("surface");
-      const chambres = document.getElementById("chambres").value;
-      const etages = document.getElementById("etages").value;
-      const occupants = document.getElementById("occupants").value;
-      const duree = document.getElementById("duree").value;
-      const description = document.getElementById("description").value;
-      const prix = document.getElementById("total").innerText;
-
+      const getVal = id => document.getElementById(id).value;
+      const superficie = getVal('longueur') * getVal('largeur');
       const plans = Array.from(document.querySelectorAll('.plan:checked')).map(p => p.parentElement.textContent.trim()).join(", ");
-
       const resumeHtml = `
-        <p><strong>Nom :</strong> ${nom}</p>
-        <p><strong>Prénom :</strong> ${prenom}</p>
-        <p><strong>Email :</strong> ${email}</p>
-        <p><strong>Téléphone :</strong> ${telephone}</p>
+        <p><strong>Nom :</strong> ${getVal('nom')}</p>
+        <p><strong>Prénom :</strong> ${getVal('prenom')}</p>
+        <p><strong>Email :</strong> ${getVal('email')}</p>
+        <p><strong>Téléphone :</strong> ${getVal('telephone')}</p>
         <p><strong>Plans sélectionnés :</strong> ${plans}</p>
-        <p><strong>Projet :</strong> ${projet}</p>
-        <p><strong>Structure :</strong> ${structure}</p>
-        <p><strong>Longueur :</strong> ${longueur} m</p>
-        <p><strong>Largeur :</strong> ${largeur} m</p>
-        <p><strong>Largeur :</strong> ${superficie} m2</p>
-        <p><strong>Chambres :</strong> ${chambres}</p>
-        <p><strong>Étages :</strong> ${etages}</p>
-        <p><strong>Occupants :</strong> ${occupants}</p>
-        <p><strong>Durée estimée :</strong> ${duree} semaines</p>
-        <p><strong>Description :</strong> ${description}</p>
-        <p class="mt-3 font-bold text-lg">${prix}</p>
+        <p><strong>Projet :</strong> ${document.getElementById('projet').selectedOptions[0].text}</p>
+        <p><strong>Structure :</strong> ${document.getElementById('structure').selectedOptions[0].text}</p>
+        <p><strong>Superficie :</strong> ${superficie} m²</p>
+        <p><strong>Chambres :</strong> ${getVal('chambres')}</p>
+        <p><strong>Étages :</strong> ${getVal('etages')}</p>
+        <p><strong>Occupants :</strong> ${getVal('occupants')}</p>
+        <p><strong>Durée :</strong> ${getVal('duree')} semaines</p>
+        <p><strong>Description :</strong> ${getVal('description')}</p>
+        <p class="mt-3 font-bold text-lg">${document.getElementById('total').innerText}</p>
       `;
 
-      document.getElementById("resume-content").innerHTML = resumeHtml;
-
-      document.getElementById("formulaire-devis").classList.add("hidden");
-      document.getElementById("resume").classList.remove("hidden");
+      document.getElementById('resume-content').innerHTML = resumeHtml;
+      document.getElementById('formulaire-devis').classList.add('hidden');
+      document.getElementById('resume').classList.remove('hidden');
     }
 
     function editForm() {
-      document.getElementById("resume").classList.add("hidden");
-      document.getElementById("formulaire-devis").classList.remove("hidden");
+      document.getElementById('resume').classList.add('hidden');
+      document.getElementById('formulaire-devis').classList.remove('hidden');
     }
+
+    // Mobile Menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+    menuClose.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
   </script>
 
-
-<!-- Footer -->
-  <footer class="bg-gray-900 text-white text-center py-6">
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center py-6 mt-10">
     <div class="flex justify-center gap-6 mb-4 text-xl">
-      <a href="#" aria-label="Facebook" class="hover:text-brown-400"><i class="fab fa-facebook"></i></a>
-      <a href="#" aria-label="Instagram" class="hover:text-brown-400"><i class="fab fa-instagram"></i></a>
-      <a href="#" aria-label="LinkedIn" class="hover:text-brown-400"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="hover:text-brown-400"><i class="fab fa-facebook"></i></a>
+      <a href="#" class="hover:text-brown-400"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="hover:text-brown-400"><i class="fab fa-linkedin"></i></a>
     </div>
     <p>&copy; 2025 BEL Design. Tous droits réservés.</p>
     <p class="text-sm"><strong>Powered by ISSOUF</strong></p>
   </footer>
-
-  <!-- Mobile Menu Script -->
-  <script>
-  const menuToggle = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuClose = document.getElementById('menu-close');
-
-  menuToggle.addEventListener('click', () => {
-    mobileMenu.classList.remove('translate-x-full');
-  });
-
-  menuClose.addEventListener('click', () => {
-    mobileMenu.classList.add('translate-x-full');
-  });
-</script>
-
 </body>
 </html>
